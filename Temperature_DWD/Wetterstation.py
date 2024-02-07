@@ -114,18 +114,16 @@ for missing_start_date,missing_end_date in zip(missing_starts,missing_ends):
 # ----> fill missing values of temp_amb
     # plot timeseries through timeintervall of missing of Heckelberg and Zehdenick
     # to evaluate if we can replace the missing data with the data given by Zehdenick
-def plotten(df,color,axes):
-    df.plot(ax=axes,color=color,linewidth=1, alpha=1)
-    axes.set_ylabel("[°C]", fontsize=12, family="monospace", rotation="horizontal")
-    axes.yaxis.set_label_coords(-0.060, 0.920)
 
 fig, axes = plt.subplots(2, 1, figsize=(12, 8))
-plotten(df_Heckelberg.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"], "darkblue", axes[0])
-plotten(df_Zehdenick.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"], "goldenrod", axes[0])
+df_Heckelberg.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"].plot(ax=axes[0], color="darkblue", linewidth=1, alpha=1)
+df_Zehdenick.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"].plot(ax=axes[0], color="goldenrod", linewidth=1, alpha=1)
 
-plotten(df_Heckelberg.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"], "darkblue", axes[1])
-plotten(df_Zehdenick.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"], "goldenrod", axes[1])
+df_Heckelberg.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"].plot(ax=axes[1], color="darkblue", linewidth=1, alpha=1)
+df_Zehdenick.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"].plot(ax=axes[1], color="goldenrod", linewidth=1, alpha=1)
 
+axes[0].set_ylabel("[°C]", fontsize=12, family="monospace", rotation="horizontal")
+axes[0].yaxis.set_label_coords(-0.060, 0.920)
 axes[0].legend(["t_amb - H", "t_amb - Z"],prop={"family": "serif"})
 axes[1].legend(["t_amb - H", "t_amb - Z"],prop={"family": "serif"})
 plt.tight_layout()
@@ -245,7 +243,7 @@ def closestweatherstations(lat,lon):
 weatherstations_IN = closestweatherstations(position_cities["Ingolstadt"]["lat"],position_cities["Ingolstadt"]["lon"])
 
 print("Closest weather stations for t_amb near Ingolstadt")
-print(weatherstations_IN.head(5))
+print(weatherstations_IN.head(8))
 # closest weatherstation is "Kösching"
     # -> missing data in t_amb 13.02.2011-11:00	-> 14.02.2011-00:00	[14]
     # to replace missing values we choose we choose "Neuburg"
@@ -285,25 +283,17 @@ df_inter = (df_Neuburg + df_Gelbelsee)/2
 
 
 fig, axes = plt.subplots(1, 1, figsize=(12, 8))
-plotten(df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"], "darkblue", axes)
-plotten(df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"], "goldenrod", axes)
-plotten(df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"], "forestgreen", axes)
-plotten(df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"], "black", axes)
+df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
+df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=1)
+df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="forestgreen", linewidth=1, alpha=1)
+df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=1, linestyle="--")
 
-axes.legend(["t_amb - Kösching", "t_amb - Neuburg", "t_amb - Gelbelsee"],
-            prop={"family": "serif"})
-plt.tight_layout()
-plt.show()
-
-fig, axes = plt.subplots(1, 1, figsize=(12, 8))
-plotten(df_Kösching.loc["2011-01-01 00:00:00":"2011-12-31 23:00:00", "temp_amb"], "darkblue", axes)
-plotten(df_Neuburg.loc["2011-01-01 00:00:00":"2011-12-31 23:00:00", "temp_amb"], "goldenrod", axes)
-plotten(df_Gelbelsee.loc["2011-01-01 00:00:00":"2011-12-31 23:00:00", "temp_amb"], "forestgreen", axes)
-plotten(df_inter.loc["2011-01-01 00:00:00":"2011-12-31 23:00:00", "temp_amb"], "black", axes)
-
+axes.set_ylabel("[°C]", fontsize=12, family="monospace", rotation="horizontal")
+axes.yaxis.set_label_coords(-0.060, 0.920)
 axes.legend(["t_amb - Kösching", "t_amb - Neuburg", "t_amb - Gelbelsee", "t_amb - Neuburg/Gelbelsee (mean)"],
             prop={"family": "serif"})
 plt.tight_layout()
 plt.show()
+
 
 #closest_Kösching = closestweatherstations(11.4872,48.8302)
