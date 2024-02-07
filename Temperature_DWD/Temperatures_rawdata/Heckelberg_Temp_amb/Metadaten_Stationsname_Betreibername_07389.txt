@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  7389;Heckelberg;20060201;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  7389;DWD;20060201;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

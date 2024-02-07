@@ -1,0 +1,4 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+7389;Heckelberg;13.84;52.75;83;2;20061201;20170814;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+7389;Heckelberg;13.84;52.75;83;2;20170815;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

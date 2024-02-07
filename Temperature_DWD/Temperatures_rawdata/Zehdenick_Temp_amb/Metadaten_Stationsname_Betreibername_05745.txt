@@ -1,0 +1,10 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  5745;Zehdenick;19320122;19390331
+  5745;Zehdenick;19460615;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  5745;Wetterdienst;19320122;19390331
+  5745;Wetterdienst;19460615;19491231
+  5745;Meteorologischer Dienst der DDR;19500101;19901231
+  5745;DWD;19910101;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5745;Zehdenick;13.35;52.98;46;2;19910101;19940517;Hygrograph nach Frankenberg;Feuchteregistrierung, konv.;eor;
+5745;Zehdenick;13.35;52.98;46;2;19940518;19961031;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+5745;Zehdenick;13.33;52.97;51;2;19961101;20040531;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+5745;Zehdenick;13.33;52.97;51;2;20040601;20200303;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+5745;Zehdenick;13.33;52.97;51;2;20190815;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

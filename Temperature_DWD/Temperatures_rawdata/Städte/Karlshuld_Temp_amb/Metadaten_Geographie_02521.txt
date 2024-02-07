@@ -1,0 +1,4 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  2521;  374.00; 48.6801; 11.2917;19491001;19540317;Karlshuld
+  2521;  374.00; 48.6798; 11.2792;19540318;19680807;Karlshuld
+  2521;  374.00; 48.6765; 11.2961;19680808;19940331;Karlshuld

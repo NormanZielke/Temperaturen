@@ -1,0 +1,2 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  7389;   83.00; 52.7461; 13.8427;20060201;        ;Heckelberg

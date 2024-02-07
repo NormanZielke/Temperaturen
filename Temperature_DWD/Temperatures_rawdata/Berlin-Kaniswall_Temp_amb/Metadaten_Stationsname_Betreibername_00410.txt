@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+   410;Berlin-Kaniswall;19960501;20201101
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+   410;DWD;19960501;20201101
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

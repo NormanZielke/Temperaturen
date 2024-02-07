@@ -1,0 +1,14 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+2700;Kösching;TT_TU;13.02.2011-11:00;14.02.2011-00:00;14;;eor;                                                                                                                                          
+2700;Kösching;TT_TU;06.03.2019-10:00;06.03.2019-15:00;6;;eor;                                                                                                                                           
+2700;Kösching;TT_TU;07.03.2019-09:00;07.03.2019-09:00;1;;eor;                                                                                                                                           
+2700;Kösching;TT_TU;19.05.2020-16:00;22.05.2020-08:00;65;;eor;                                                                                                                                          
+2700;Kösching;TT_TU;04.06.2020-12:00;05.06.2020-09:00;22;;eor;                                                                                                                                          
+2700;Kösching;TT_TU;28.07.2021-07:00;30.07.2021-05:00;47;;eor;                                                                                                                                          
+2700;Kösching;RF_TU;13.02.2011-09:00;14.02.2011-07:00;23;;eor;                                                                                                                                          
+2700;Kösching;RF_TU;06.03.2019-10:00;06.03.2019-15:00;6;;eor;                                                                                                                                           
+2700;Kösching;RF_TU;07.03.2019-09:00;07.03.2019-09:00;1;;eor;                                                                                                                                           
+2700;Kösching;RF_TU;19.05.2020-16:00;22.05.2020-08:00;65;;eor;                                                                                                                                          
+2700;Kösching;RF_TU;04.06.2020-12:00;05.06.2020-09:00;22;;eor;                                                                                                                                          
+2700;Kösching;RF_TU;28.07.2021-07:00;30.07.2021-05:00;47;;eor;                                                                                                                                          
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

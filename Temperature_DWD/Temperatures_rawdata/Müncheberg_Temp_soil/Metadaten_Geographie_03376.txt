@@ -1,0 +1,4 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  3376;   84.00; 52.4986; 14.1314;18830101;19470531;Müncheberg
+  3376;   62.00; 52.5164; 14.1212;19470601;20040531;Müncheberg
+  3376;   63.00; 52.5176; 14.1232;20040601;        ;Müncheberg

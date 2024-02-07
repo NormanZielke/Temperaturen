@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  1587;Gelbelsee;19790101;19880131
+  1587;Gelbelsee;19880201;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  1587;DWD;19790101;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

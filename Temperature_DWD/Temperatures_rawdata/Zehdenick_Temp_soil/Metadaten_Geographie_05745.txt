@@ -1,0 +1,6 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  5745;   44.00; 52.9741; 13.3481;19320122;19390331;Zehdenick
+  5745;   46.00; 52.9826; 13.3473;19460615;19460831;Zehdenick
+  5745;   46.00; 52.9780; 13.3511;19460901;19710930;Zehdenick
+  5745;   46.00; 52.9834; 13.3517;19711001;19961031;Zehdenick
+  5745;   51.00; 52.9663; 13.3268;19961101;        ;Zehdenick
