@@ -100,11 +100,12 @@ def approximate(df,missing_start_date,missing_end_date):
     t_delta = (df.loc[df.index[df.index > pd.to_datetime(missing_end_date)].min(),"temp_soil"] -
                df.loc[df.index[df.index < pd.to_datetime(missing_start_date)].max(),"temp_soil"])
     if t_delta == 0:
-        missing_values = np.full(len(missing_range),df.loc[df.index[df.index > pd.to_datetime(missing_end_date)].min(),"temp_soil"])
+        missing_values = np.full(len(missing_range),
+                                 df.loc[df.index[df.index > pd.to_datetime(missing_end_date)].min(),"temp_soil"])
     else:
-        x = t_delta/len(missing_range)
-        missing_values = np.arange(df.loc[df.index[df.index < pd.to_datetime(missing_start_date)].max(),"temp_soil"],
-                                   df.loc[df.index[df.index > pd.to_datetime(missing_end_date)].min(),"temp_soil"],x)
+        missing_values = np.linspace(df.loc[df.index[df.index < pd.to_datetime(missing_start_date)].max(), "temp_soil"],
+                                     df.loc[df.index[df.index > pd.to_datetime(missing_end_date)].min(), "temp_soil"],
+                                     len(missing_range), endpoint=False)
     df.loc[missing_start_date:missing_end_date,"temp_soil"] = missing_values
     return
 
@@ -127,7 +128,7 @@ axes[0].yaxis.set_label_coords(-0.060, 0.920)
 axes[0].legend(["t_amb - H", "t_amb - Z"],prop={"family": "serif"})
 axes[1].legend(["t_amb - H", "t_amb - Z"],prop={"family": "serif"})
 plt.tight_layout()
-plt.show()
+#plt.show()
 
 df_Heckelberg.loc["2011-04-26 17:00:00":"2011-04-28 09:00:00","temp_amb"] = df_Zehdenick.loc["2011-04-26 17:00:00":"2011-04-28 09:00:00","temp_amb"]
 df_Heckelberg.loc["2011-07-01 13:00:00":"2011-07-01 15:00:00","temp_amb"] = df_Zehdenick.loc["2011-07-01 13:00:00":"2011-07-01 15:00:00","temp_amb"]
@@ -281,8 +282,7 @@ df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Gelb
 
 df_inter = (df_Neuburg + df_Gelbelsee)/2
 
-
-fig, axes = plt.subplots(1, 1, figsize=(12, 8))
+fig, axes = plt.subplots(1, 1, figsize=(12, 6))
 df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
 df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=1)
 df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="forestgreen", linewidth=1, alpha=1)
@@ -293,7 +293,11 @@ axes.yaxis.set_label_coords(-0.060, 0.920)
 axes.legend(["t_amb - Kösching", "t_amb - Neuburg", "t_amb - Gelbelsee", "t_amb - Neuburg/Gelbelsee (mean)"],
             prop={"family": "serif"})
 plt.tight_layout()
+
 plt.show()
-
-
+missing_start_date = "2011-02-13 09:00:00"
+missing_end_date = "2011-02-14 07:00:00"
 #closest_Kösching = closestweatherstations(11.4872,48.8302)
+
+approximate(df_Kösching,missing_start_date,missing_end_date)
+print(df_Kösching.loc["2011-02-13 08:00:00":"2011-02-14 08:00:00",:])
