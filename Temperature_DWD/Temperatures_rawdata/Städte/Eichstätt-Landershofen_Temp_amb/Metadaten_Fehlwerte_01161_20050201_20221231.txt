@@ -1,0 +1,20 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+1161;Eichstätt-Landershofen;TT_TU;16.10.2007-14:00;16.10.2007-14:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;TT_TU;07.06.2008-16:00;07.06.2008-16:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;TT_TU;10.08.2008-16:00;10.08.2008-16:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;TT_TU;18.11.2008-06:00;18.11.2008-06:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;TT_TU;27.11.2019-08:00;02.12.2019-09:00;122;;eor;                                                                                                                           
+1161;Eichstätt-Landershofen;TT_TU;01.07.2020-22:00;02.07.2020-08:00;11;;eor;                                                                                                                            
+1161;Eichstätt-Landershofen;TT_TU;02.07.2020-10:00;02.07.2020-11:00;2;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;TT_TU;23.06.2021-06:00;24.06.2021-08:00;27;;eor;                                                                                                                            
+1161;Eichstätt-Landershofen;TT_TU;27.06.2022-21:00;28.06.2022-04:00;8;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;RF_TU;16.10.2007-14:00;16.10.2007-14:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;RF_TU;07.06.2008-16:00;07.06.2008-16:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;RF_TU;10.08.2008-16:00;10.08.2008-16:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;RF_TU;18.11.2008-06:00;18.11.2008-06:00;1;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;RF_TU;27.11.2019-08:00;02.12.2019-09:00;122;;eor;                                                                                                                           
+1161;Eichstätt-Landershofen;RF_TU;01.07.2020-22:00;02.07.2020-08:00;11;;eor;                                                                                                                            
+1161;Eichstätt-Landershofen;RF_TU;02.07.2020-10:00;02.07.2020-11:00;2;;eor;                                                                                                                             
+1161;Eichstätt-Landershofen;RF_TU;23.06.2021-06:00;24.06.2021-08:00;27;;eor;                                                                                                                            
+1161;Eichstätt-Landershofen;RF_TU;27.06.2022-21:00;28.06.2022-04:00;8;;eor;                                                                                                                             
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    
