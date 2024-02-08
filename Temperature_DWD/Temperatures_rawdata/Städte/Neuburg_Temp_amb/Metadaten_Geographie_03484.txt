@@ -1,5 +1,0 @@
-Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
-  3484;  380.00; 48.7167; 11.2167;19610502;20071203;Neuburg/Donau (Flugplatz)
-  3484;  380.00; 48.7097; 11.2096;20071204;20170530;Neuburg/Donau (Flugplatz)
-  3484;  380.00; 48.7086; 11.2147;20170531;20191016;Neuburg/Donau (Flugplatz)
-  3484;  380.00; 48.7085; 11.2147;20191017;        ;Neuburg/Donau (Flugplatz)

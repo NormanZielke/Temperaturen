@@ -259,15 +259,15 @@ print(weatherstations_IN.head(8))
         # Königsmoos-Untermaxfeld -> not in operation anymore
     # -> missing values in t_soil 13.02.2011-09:00 -> 14.02.2011-07:00 [23]
 
-Kösching_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kösching_Temp_amb\produkt_tu_stunde_20041201_20221231_02700.txt",
+Kösching_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Kösching_Temp_amb\produkt_tu_stunde_20041201_20221231_02700.txt",
                                index_col = 1, sep=";")
-Kösching_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kösching_Temp_soil\produkt_eb_stunde_19870101_20221231_02700.txt",
+Kösching_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Kösching_Temp_soil\produkt_eb_stunde_19870101_20221231_02700.txt",
                                 index_col = 1, sep=";")
-Neuburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Neuburg_Temp_amb\produkt_tu_stunde_20020101_20221231_03484.txt",
+Neuburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Neuburg_Temp_amb\produkt_tu_stunde_20020101_20221231_03484.txt",
                               index_col = 1, sep=";")
-Gelbelsee_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Gelbelsee_Temp_amb\produkt_tu_stunde_19910101_20221231_01587.txt",
+Gelbelsee_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Gelbelsee_Temp_amb\produkt_tu_stunde_19910101_20221231_01587.txt",
                                 index_col = 1, sep=";")
-Eichstätt_Landershofen_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Eichstätt-Landershofen_Temp_amb\produkt_tu_stunde_20050201_20221231_01161.txt",
+Eichstätt_Landershofen_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Eichstätt-Landershofen_Temp_amb\produkt_tu_stunde_20050201_20221231_01161.txt",
                                               index_col = 1, sep=";")
 
 #closest_Kösching = closestweatherstations(11.4872,48.8302)
@@ -344,4 +344,6 @@ df_Ingolstadt = pd.DataFrame(data,index=date_range)
 df_Ingolstadt.loc[:,["temp_amb", "temp_soil"]] = df_Kösching.loc[:,["temp_amb", "temp_soil"]]
 df_Ingolstadt.insert(0,"ags_id", np.full(len(date_range),position_cities["Ingolstadt"]["ags_id"]))
 
-print(df_Ingolstadt)
+# --------------------------------------------------------------------------------------------------------------------->
+# DATA -> Kassel
+weatherstations_KS = closestweatherstations(position_cities["Kassel"]["lat"],position_cities["Kassel"]["lon"])

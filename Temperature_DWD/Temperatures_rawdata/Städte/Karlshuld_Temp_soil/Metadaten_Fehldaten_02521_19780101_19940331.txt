@@ -1,6 +1,0 @@
-Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
-2521;Karlshuld;V_TE020;01.01.1978;31.03.1994;129;Gesamt_Messzeitraum;eor;                                                                                                                               
-Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
-2521;Karlshuld;V_TE020;09.02.1982-22:00;15.03.1982-06:00;99;;eor;                                                                                                                                       
-2521;Karlshuld;V_TE020;07.01.1987-22:00;18.01.1987-06:00;30;;eor;                                                                                                                                       
-generiert: 05.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

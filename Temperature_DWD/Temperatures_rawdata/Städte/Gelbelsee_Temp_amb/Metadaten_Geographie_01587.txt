@@ -1,5 +1,0 @@
-Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
-  1587;  539.00; 48.9500; 11.4333;19790101;19880131;Gelbelsee
-  1587;  539.00; 48.9500; 11.4333;19880201;19881130;Gelbelsee
-  1587;  539.00; 48.9473; 11.4286;19881201;20031209;Gelbelsee
-  1587;  536.00; 48.9481; 11.4289;20031210;        ;Gelbelsee

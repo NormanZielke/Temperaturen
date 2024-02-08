@@ -1,4 +1,0 @@
-Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
-1161;Eichstätt-Landershofen;11.23;48.88;384;2;20050201;20191124;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
-1161;Eichstätt-Landershofen;11.23;48.88;384;2;20181004;20230426;EE33;Feuchtemessung, elektr.;eor;
-generiert: 05.05.2023 --  Deutscher Wetterdienst  --

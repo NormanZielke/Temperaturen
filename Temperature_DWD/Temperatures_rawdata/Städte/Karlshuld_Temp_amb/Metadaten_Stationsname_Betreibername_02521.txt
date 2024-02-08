@@ -1,6 +1,0 @@
-Stations_ID;Stationsname;Von_Datum;Bis_Datum
-  2521;Karlshuld;19491001;19940331
-
-Stations_ID;Betreibername;Von_Datum;Bis_Datum
-  2521;DWD;19491001;19940331
-generiert: 05.05.2023 --  Deutscher Wetterdienst  --
