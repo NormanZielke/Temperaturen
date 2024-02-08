@@ -122,12 +122,17 @@ df_Zehdenick.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"].plot(a
 
 df_Heckelberg.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"].plot(ax=axes[1], color="darkblue", linewidth=1, alpha=1)
 df_Zehdenick.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"].plot(ax=axes[1], color="goldenrod", linewidth=1, alpha=1)
-
-axes[0].set_ylabel("[°C]", fontsize=12, family="monospace", rotation="horizontal")
+#labeling
+axes[0].set_title("missing t_amb interval Heckelberg april",fontsize = 12,family="serif")
+axes[0].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
 axes[0].yaxis.set_label_coords(-0.060, 0.920)
-axes[0].legend(["t_amb - H", "t_amb - Z"],prop={"family": "serif"})
-axes[1].legend(["t_amb - H", "t_amb - Z"],prop={"family": "serif"})
+axes[0].legend(["Heckelberg", "Zehdenick"], prop={"family": "serif"})
+axes[1].set_title("missing interval t_amb Heckelberg july",fontsize = 12,family="serif")
+axes[1].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes[1].yaxis.set_label_coords(-0.060, 0.920)
+axes[1].legend(["Heckelberg", "Zehdenick"], prop={"family": "serif"})
 plt.tight_layout()
+plt.savefig("Heckelberg_missingintervals", format="jpg")
 #plt.show()
 
 df_Heckelberg.loc["2011-04-26 17:00:00":"2011-04-28 09:00:00","temp_amb"] = df_Zehdenick.loc["2011-04-26 17:00:00":"2011-04-28 09:00:00","temp_amb"]
@@ -149,7 +154,7 @@ df_Rüdersdorf.insert(0,"ags_id",np.full(len(date_range),12064428))
 df_Strausberg = (df_Berlin_Kaniswall + df_Berlin_Marzahn + df_Heckelberg + df_Müncheberg)/4
 df_Strausberg.insert(0,"ags_id",np.full(len(date_range),12064472))
 
-# Erkner -> Berlin-Kaniswall
+# Erkner = Berlin-Kaniswall
 data = {"temp_amb": {},
         "temp_soil": {}
 }
@@ -180,13 +185,13 @@ temperatures_2011.to_csv("temperatures_2011",index=False)
     # source: https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/hourly/air_temperature/historical/
 weatherstations_t_amb = pd.read_csv(r"Wetterstationen\TU_Stundenwerte_Beschreibung_Stationen_t_amb.csv",
                                     encoding='latin1', sep=";")
-# geo data cities
+# cities
 position_cities = {
-    "Ingolstadt": {"lon": 11.4237, "lat": 48.766},  # IN
-    "Kassel": {"lon": 9.479, "lat": 51.312},        # KS
-    "Bocholt": {"lon": 6.614, "lat": 51.838},       # BOH
-    "Kiel": {"lon": 10.123, "lat": 54.322},         # KI
-    "Zwickau": {"lon": 12.461, "lat": 50.706},      # Z
+    "Ingolstadt": {"lon": 11.4237, "lat": 48.766, "ags_id": "09161000"},  # IN
+    "Kassel": {"lon": 9.479, "lat": 51.312, "ags_id": "06611000"},        # KS
+    "Bocholt": {"lon": 6.614, "lat": 51.838, "ags_id": "05554008"},       # BOH
+    "Kiel": {"lon": 10.123, "lat": 54.322, "ags_id": "01002000"},         # KI
+    "Zwickau": {"lon": 12.461, "lat": 50.706, "ags_id": "14524330"},      # Z
 }
     # function to calculate distance between two geo point with Haversine formula
         # input values
@@ -241,13 +246,14 @@ def closestweatherstations(lat,lon):
     return df_distance
 
 # --------------------------------------------------------------------------------------------------------------------->
+# DATA -> Ingolstadt
 weatherstations_IN = closestweatherstations(position_cities["Ingolstadt"]["lat"],position_cities["Ingolstadt"]["lon"])
 
 print("Closest weather stations for t_amb near Ingolstadt")
 print(weatherstations_IN.head(8))
-# closest weatherstation is "Kösching"
+# closest weatherstation is "Kösching" --> set as t_amb - Ingolstadt
     # -> missing data in t_amb 13.02.2011-11:00	-> 14.02.2011-00:00	[14]
-    # to replace missing values we choose we choose "Neuburg"
+    # look to weatherstations nearby
         # Ingolstadt-Manching -> missing values in same time
         # Karlshuld -> not in operation anymore
         # Königsmoos-Untermaxfeld -> not in operation anymore
@@ -260,44 +266,82 @@ Kösching_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kösching_Temp_s
 Neuburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Neuburg_Temp_amb\produkt_tu_stunde_20020101_20221231_03484.txt",
                               index_col = 1, sep=";")
 Gelbelsee_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Gelbelsee_Temp_amb\produkt_tu_stunde_19910101_20221231_01587.txt",
-                              index_col = 1, sep=";")
+                                index_col = 1, sep=";")
+Eichstätt_Landershofen_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Eichstätt-Landershofen_Temp_amb\produkt_tu_stunde_20050201_20221231_01161.txt",
+                                              index_col = 1, sep=";")
 
-
-# create empty dataframe for Kösching
+#closest_Kösching = closestweatherstations(11.4872,48.8302)
+# create empty dataframes
 data = {"temp_amb": {},
         "temp_soil": {}
 }
 df_Kösching = pd.DataFrame(data, index=date_range)
 df_Neuburg = pd.DataFrame(data, index=date_range) # also missing values in Neuburg_raw_amb -> df_temperatures_2011(df_raw_amb,df_raw_soil) not running
 df_Gelbelsee = pd.DataFrame(data, index=date_range)
+df_Eichstätt_Landershofen = pd.DataFrame(data, index=date_range)
 
 # fill dataframe with known values
 df_Kösching.loc["2011-01-01 00:00:00":"2011-02-13 10:00:00", "temp_amb"] = Kösching_raw_amb.loc[2011010100:2011021310, 'TT_TU'].values
 df_Kösching.loc["2011-02-14 01:00:00":"2011-12-31 23:00:00", "temp_amb"] = Kösching_raw_amb.loc[2011021401:2011123123, 'TT_TU'].values
 df_Kösching.loc["2011-01-01 00:00:00":"2011-02-13 08:00:00", "temp_soil"] = Kösching_raw_soil.loc[2011010100:2011021308, 'V_TE100'].values
 df_Kösching.loc["2011-02-14 08:00:00":"2011-12-31 23:00:00", "temp_soil"] = Kösching_raw_soil.loc[2011021408:2011123123, 'V_TE100'].values
-# fill dataframe with data around the missing interval of t_amb for plotting
+# fill dataframes with data around the missing interval of t_amb for plotting
+df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Eichstätt_Landershofen_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
 df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Neuburg_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
 df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Gelbelsee_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
-
+# interpolation for missing values
 df_inter = (df_Neuburg + df_Gelbelsee)/2
 
-fig, axes = plt.subplots(1, 1, figsize=(12, 6))
-df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
-df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=1)
-df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="forestgreen", linewidth=1, alpha=1)
-df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=1, linestyle="--")
+# replace missing values for t_amb in df_Köschling
+    # it seems that weatherstation delivered faulty measures before and after missing interval -> sea plot
+        # -> replace values in a bigger interval with interpolation between Neuburg Gelbelsee
+# plot
+fig, axes = plt.subplots(2, 1, figsize=(12, 8))
+df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="darkblue", linewidth=1, alpha=1)
+df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="goldenrod", linewidth=1, alpha=1)
+df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="forestgreen", linewidth=1, alpha=1)
+df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="black", linewidth=1, alpha=1, linestyle="--")
+df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="darkviolet", linewidth=1, alpha=1, linestyle=":")
 
-axes.set_ylabel("[°C]", fontsize=12, family="monospace", rotation="horizontal")
-axes.yaxis.set_label_coords(-0.060, 0.920)
-axes.legend(["t_amb - Kösching", "t_amb - Neuburg", "t_amb - Gelbelsee", "t_amb - Neuburg/Gelbelsee (mean)"],
+df_Kösching.loc["2011-02-13 03:00:00":"2011-02-14 07:00:00", "temp_amb"] = df_inter.loc["2011-02-13 03:00:00":"2011-02-14 07:00:00", "temp_amb"]
+
+df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="darkblue", linewidth=1, alpha=1)
+df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="goldenrod", linewidth=1, alpha=1)
+df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="forestgreen", linewidth=1, alpha=1)
+df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="black", linewidth=1, alpha=1, linestyle="--")
+df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="darkviolet", linewidth=1, alpha=1, linestyle=":")
+
+# labeling
+axes[0].set_title("Replacement missing t_amb interval Kösching february",fontsize=12,family="serif")
+axes[0].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes[0].yaxis.set_label_coords(-0.060, 0.920)
+axes[0].legend(["Kösching", "Neuburg", "Gelbelsee", "Neuburg/Gelbelsee (mean)", "Eichstätt-Landershofen"],
+            prop={"family": "serif"})
+
+axes[1].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes[1].yaxis.set_label_coords(-0.060, 0.920)
+axes[1].legend(["Kösching", "Neuburg", "Gelbelsee", "Neuburg/Gelbelsee (mean)", "Eichstätt-Landershofen"],
             prop={"family": "serif"})
 plt.tight_layout()
+plt.savefig("Kösching_missingintervals", format="jpg")
 
 plt.show()
+
+# replace missing values for t_amb in df_Köschling
+    # it seems that weatherstation delivered faulty measures before and after missing interval -> sea plot
+        # -> replace values in a bigger interval
+
 missing_start_date = "2011-02-13 09:00:00"
 missing_end_date = "2011-02-14 07:00:00"
-#closest_Kösching = closestweatherstations(11.4872,48.8302)
-
 approximate(df_Kösching,missing_start_date,missing_end_date)
-print(df_Kösching.loc["2011-02-13 08:00:00":"2011-02-14 08:00:00",:])
+print(df_Kösching.loc["2011-02-13 08:00:00":"2011-02-14 08:00:00", :])
+
+# Ingolstadt = Berlin-Kaniswall
+data = {"temp_amb": {},
+        "temp_soil": {}
+}
+df_Ingolstadt = pd.DataFrame(data,index=date_range)
+df_Ingolstadt.loc[:,["temp_amb", "temp_soil"]] = df_Kösching.loc[:,["temp_amb", "temp_soil"]]
+df_Ingolstadt.insert(0,"ags_id", np.full(len(date_range),position_cities["Ingolstadt"]["ags_id"]))
+
+print(df_Ingolstadt)
