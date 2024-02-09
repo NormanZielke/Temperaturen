@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  1297;Eschwege;18881101;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  1297;Wetterdienst;18881101;19521110
+  1297;DWD;19521111;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

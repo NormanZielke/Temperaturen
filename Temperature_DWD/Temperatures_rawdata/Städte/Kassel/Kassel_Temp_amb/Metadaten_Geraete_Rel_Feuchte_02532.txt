@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+2532;Kassel (West);9.45;51.31;187;2;19510501;19530924;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+2532;Kassel (Süd);9.48;51.31;158;2;19530925;19770719;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+2532;Kassel;9.44;51.3;231;2;19770720;20031019;Thermohygrograph;Temperatur- und Feuchtereg., konv.;eor;
+2532;Kassel;9.44;51.3;231;2;20000418;20060712;HYGROMER MP100;Feuchtemessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;2;20060713;20131031;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

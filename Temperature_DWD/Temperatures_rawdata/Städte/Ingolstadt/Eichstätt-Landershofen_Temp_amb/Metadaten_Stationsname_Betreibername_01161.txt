@@ -1,0 +1,11 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  1161;Eichstätt;19210101;19650331
+  1161;Rebdorf;19650401;19660831
+  1161;Eichstätt;19660901;20000630
+  1161;Eichstätt-Landershofen;20040707;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  1161;Wetterdienst;19210101;19521110
+  1161;DWD;19521111;20000630
+  1161;DWD;20040707;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

@@ -1,0 +1,5 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  1504;  174.00; 51.1167;  9.2833;19580117;19731231;Fritzlar (Flugplatz)
+  1504;  174.00; 51.1167;  9.2833;19740101;20070618;Fritzlar (Flugplatz)
+  1504;  172.00; 51.1190;  9.2799;20070619;20190513;Fritzlar (Flugplatz)
+  1504;  172.00; 51.1190;  9.2799;20190514;        ;Fritzlar (Flugplatz)

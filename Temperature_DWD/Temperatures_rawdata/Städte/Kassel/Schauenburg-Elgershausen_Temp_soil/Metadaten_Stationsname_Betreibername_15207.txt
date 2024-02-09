@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+ 15207;Schauenburg-Elgershausen;20130619;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+ 15207;DWD;20130619;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

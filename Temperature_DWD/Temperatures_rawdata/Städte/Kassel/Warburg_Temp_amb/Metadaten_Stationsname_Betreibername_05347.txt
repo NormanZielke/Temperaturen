@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  5347;Warburg;19740619;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  5347;DWD;19740619;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

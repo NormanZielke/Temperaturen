@@ -1,0 +1,24 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+2532;Kassel;9.44;51.3;231;-.02;19770720;19911124;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel (Süd);9.48;51.31;158;-.05;19770101;19770719;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.05;19770720;20000705;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.05;20000418;20060712;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;-.05;20060713;20100425;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;-.05;20100503;20131031;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel (Süd);9.48;51.31;158;-.1;19770101;19770719;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.1;19770720;20000705;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.1;20000418;20060712;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;-.1;20060713;20131031;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel (Süd);9.48;51.31;158;-.2;19770101;19770719;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.2;19770720;20000705;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.2;20000418;20060712;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;-.2;20060713;20131031;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel (Süd);9.48;51.31;158;-.5;19770101;19770719;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.5;19770720;20000705;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-.5;20000418;20060712;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;-.5;20060713;20131031;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel (Süd);9.48;51.31;158;-1;19770101;19770719;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-1;19770720;20000705;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2532;Kassel;9.44;51.3;231;-1;20000418;20060712;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2532;Kassel;9.44;51.3;231;-1;20060713;20131031;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

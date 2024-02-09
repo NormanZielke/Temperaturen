@@ -1,0 +1,5 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  2700;  415.00; 48.8310; 11.4895;19601201;19610228;Kösching
+  2700;  415.00; 48.8310; 11.4895;19610301;19690630;Kösching
+  2700;  417.00; 48.8305; 11.4875;19690701;20041130;Kösching
+  2700;  416.00; 48.8302; 11.4872;20041201;        ;Kösching

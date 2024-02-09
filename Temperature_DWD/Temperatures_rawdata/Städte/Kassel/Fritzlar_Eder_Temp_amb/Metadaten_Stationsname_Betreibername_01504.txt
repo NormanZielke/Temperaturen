@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  1504;Fritzlar (Flugplatz);19580117;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  1504;GeophysBdBw;19580117;20030310
+  1504;GeoInfoDBw;20030311;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

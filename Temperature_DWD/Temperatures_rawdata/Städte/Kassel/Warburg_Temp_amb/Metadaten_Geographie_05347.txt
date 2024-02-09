@@ -1,0 +1,4 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  5347;  225.00; 51.4962;  9.1736;19740619;19991012;Warburg
+  5347;  236.00; 51.5040;  9.1117;19991013;20060928;Warburg
+  5347;  235.80; 51.5039;  9.1118;20060929;        ;Warburg

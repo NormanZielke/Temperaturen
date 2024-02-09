@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2532;Kassel (West);18621201;19530924
+  2532;Kassel (Süd);19530925;19770719
+  2532;Kassel;19770720;20131102
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2532;Wetterdienst;18621201;19521110
+  2532;DWD;19521111;20131102
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

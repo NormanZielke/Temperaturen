@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2410;Ingolstadt (Flugplatz);19600425;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2410;GeophysBdBw;19600425;20030310
+  2410;GeoInfoDBw;20030311;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

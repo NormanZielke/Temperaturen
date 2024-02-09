@@ -1,0 +1,2 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  2691;  378.00; 48.6707; 11.2173;19940401;20081231;Königsmoos-Untermaxfeld

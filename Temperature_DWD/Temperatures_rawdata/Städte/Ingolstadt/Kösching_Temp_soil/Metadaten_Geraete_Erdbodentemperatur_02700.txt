@@ -1,0 +1,12 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+2700;Kösching;11.49;48.83;416;-.05;20041201;20200519;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2700;Kösching;11.49;48.83;416;-.05;20200522;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2700;Kösching;11.49;48.83;417;-.1;19870101;20041130;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2700;Kösching;11.49;48.83;416;-.1;20041201;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2700;Kösching;11.49;48.83;417;-.2;19870101;20041130;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2700;Kösching;11.49;48.83;416;-.2;20041201;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2700;Kösching;11.49;48.83;417;-.5;19870101;20041130;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2700;Kösching;11.49;48.83;416;-.5;20041201;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2700;Kösching;11.49;48.83;417;-1;19870101;20041130;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2700;Kösching;11.49;48.83;416;-1;20041201;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

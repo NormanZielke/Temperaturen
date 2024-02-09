@@ -87,7 +87,6 @@ df_Heckelberg.loc["2011-07-01 16:00:00":"2011-12-31 23:00:00","temp_amb"] = Heck
 missing_starts = ["2011-04-26 17:00:00","2011-06-29 07:00:00","2011-07-01 13:00:00"]
 missing_ends = ["2011-04-28 09:00:00","2011-06-29 08:00:00","2011-07-01 15:00:00"]
 
-
     # function to approximate missing values
     # input values
         # df
@@ -249,8 +248,8 @@ def closestweatherstations(lat,lon):
 # DATA -> Ingolstadt
 weatherstations_IN = closestweatherstations(position_cities["Ingolstadt"]["lat"],position_cities["Ingolstadt"]["lon"])
 
-print("Closest weather stations for t_amb near Ingolstadt")
-print(weatherstations_IN.head(8))
+#print("Closest weather stations for t_amb near Ingolstadt")
+#print(weatherstations_IN.head(8))
 # closest weatherstation is "Kösching" --> set as t_amb - Ingolstadt
     # -> missing data in t_amb 13.02.2011-11:00	-> 14.02.2011-00:00	[14]
     # look to weatherstations nearby
@@ -280,12 +279,12 @@ df_Neuburg = pd.DataFrame(data, index=date_range) # also missing values in Neubu
 df_Gelbelsee = pd.DataFrame(data, index=date_range)
 df_Eichstätt_Landershofen = pd.DataFrame(data, index=date_range)
 
-# fill dataframe with known values
+# fill dataframe df_Kösching with known values
 df_Kösching.loc["2011-01-01 00:00:00":"2011-02-13 10:00:00", "temp_amb"] = Kösching_raw_amb.loc[2011010100:2011021310, 'TT_TU'].values
 df_Kösching.loc["2011-02-14 01:00:00":"2011-12-31 23:00:00", "temp_amb"] = Kösching_raw_amb.loc[2011021401:2011123123, 'TT_TU'].values
 df_Kösching.loc["2011-01-01 00:00:00":"2011-02-13 08:00:00", "temp_soil"] = Kösching_raw_soil.loc[2011010100:2011021308, 'V_TE100'].values
 df_Kösching.loc["2011-02-14 08:00:00":"2011-12-31 23:00:00", "temp_soil"] = Kösching_raw_soil.loc[2011021408:2011123123, 'V_TE100'].values
-# fill dataframes with data around the missing interval of t_amb for plotting
+# fill dataframes of other weatherstations with data around the missing interval of t_amb for plotting
 df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Eichstätt_Landershofen_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
 df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Neuburg_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
 df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Gelbelsee_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
@@ -334,7 +333,7 @@ plt.show()
 missing_start_date = "2011-02-13 09:00:00"
 missing_end_date = "2011-02-14 07:00:00"
 approximate(df_Kösching,missing_start_date,missing_end_date)
-print(df_Kösching.loc["2011-02-13 08:00:00":"2011-02-14 08:00:00", :])
+# print(df_Kösching.loc["2011-02-13 08:00:00":"2011-02-14 08:00:00", :])
 
 # Ingolstadt = Berlin-Kaniswall
 data = {"temp_amb": {},
@@ -347,3 +346,71 @@ df_Ingolstadt.insert(0,"ags_id", np.full(len(date_range),position_cities["Ingols
 # --------------------------------------------------------------------------------------------------------------------->
 # DATA -> Kassel
 weatherstations_KS = closestweatherstations(position_cities["Kassel"]["lat"],position_cities["Kassel"]["lon"])
+#print("Closest weather stations for t_amb near Kassel")
+#print(weatherstations_KS.head(8))
+
+# closest weatherstation is "Kassel" --> set as t_amb - Kassel
+    # -> missing data interval in t_amb 24.08.2011-19:00 -> 29.08.2011-08:00    [110]
+    # look at weatherstations nearby
+        # Schauenburg-Elgershausen --> in operation since 2013
+        # Fritzlar/Eder         --> one missing timestamp in interval 25.08.2011-05:00  [1]
+        # Warburg               --> no missing values
+        # Wesertal-Lippoldsberg --> no missing values
+        # Eschwege              --> no missing values
+    # -> missing data interval in t_soil 24.08.2011-19:00	-> 29.08.2011-08:00	[110]
+
+Kassel_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Kassel_Temp_amb\produkt_tu_stunde_19480101_20131031_02532.txt",
+                             index_col=1, sep=";")
+Kassel_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Kassel_Temp_soil\produkt_eb_stunde_19770101_20131031_02532.txt",
+                              index_col=1, sep=";")
+Fritzlar_Eder_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Fritzlar_Eder_Temp_amb\produkt_tu_stunde_20020101_20221231_01504.txt",
+                                    index_col=1, sep=";")
+Warburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Warburg_Temp_amb\produkt_tu_stunde_20010402_20221231_05347.txt",
+                              index_col=1, sep=";")
+Wesertal_Lippoldsberg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Wesertal-Lippoldsberg_Temp_amb\produkt_tu_stunde_20040901_20221231_05279.txt",
+                                            index_col=1, sep=";")
+Eschwege_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Eschwege_Temp_amb\produkt_tu_stunde_20041001_20221231_01297.txt",
+                               index_col=1, sep=";")
+# create empty dataframes
+data = {"temp_amb": {},
+        "temp_soil": {}
+}
+df_Kassel = pd.DataFrame(data, index=date_range)
+df_Fritzlar_Eder = pd.DataFrame(data, index=date_range) # also missing values in Neuburg_raw_amb -> df_temperatures_2011(df_raw_amb,df_raw_soil) not running
+df_Warburg = pd.DataFrame(data, index=date_range)
+df_Wesertal_Lippoldsberg = pd.DataFrame(data, index=date_range)
+df_Eschwege = pd.DataFrame(data, index=date_range)
+
+# fill dataframe df_Kösching with known values
+df_Kassel.loc["2011-01-01 00:00:00":"2011-08-24 18:00:00", "temp_amb"] = Kassel_raw_amb.loc[2011010100:2011082418, 'TT_TU'].values
+df_Kassel.loc["2011-08-29 09:00:00":"2011-12-31 23:00:00", "temp_amb"] = Kassel_raw_amb.loc[2011082909:2011123123, 'TT_TU'].values
+df_Kassel.loc["2011-01-01 00:00:00":"2011-08-24 18:00:00", "temp_soil"] = Kassel_raw_soil.loc[2011010100:2011082418, 'V_TE100'].values
+df_Kassel.loc["2011-08-29 09:00:00":"2011-12-31 23:00:00", "temp_soil"] = Kassel_raw_soil.loc[2011082909:2011123123, 'V_TE100'].values
+
+# fill dataframes of other weatherstations with data around the missing interval of t_amb for plotting
+df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-08-25 04:00:00", "temp_amb"] = Fritzlar_Eder_raw_amb.loc[2011081805:2011082504, 'TT_TU'].values
+df_Fritzlar_Eder.loc["2011-08-25 06:00:00":"2011-09-06 07:00:00", "temp_amb"] = Fritzlar_Eder_raw_amb.loc[2011082506:2011090607, 'TT_TU'].values
+# in Fritzlar_Eder we replace the missing value with one timestamp before
+df_Fritzlar_Eder.loc["2011-08-25 05:00:00", "temp_amb"] = df_Fritzlar_Eder.loc["2011-08-25 04:00:00", "temp_amb"]
+df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Warburg_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
+df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Wesertal_Lippoldsberg_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
+df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Eschwege_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
+
+fig, axes = plt.subplots(1, 1, figsize=(12, 8))
+df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
+df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=0.6, linestyle="-.")
+df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="forestgreen", linewidth=1, alpha=0.6, linestyle="--")
+df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=0.6, linestyle=":")
+df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkviolet", linewidth=1, alpha=0.6, linestyle="-.")
+
+# labeling
+axes.set_title("missing t_amb interval Kassel august and neraby weatherstaions",fontsize=12,family="serif")
+axes.set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes.yaxis.set_label_coords(-0.020, 0.980)
+axes.legend(["Kassel","Fritzlar_Eder","Warburg","Wesertal_Lippoldsberg","Eschwege"],
+            prop={"family": "serif"})
+plt.tight_layout()
+plt.show()
+
+# -> difference between Kassel and Fritzlar (closest weatherstation) <= 2°C
+

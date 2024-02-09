@@ -1,0 +1,4 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  2410;  364.00; 48.7082; 11.5397;19600425;20080114;Ingolstadt (Flugplatz)
+  2410;  364.00; 48.7112; 11.5362;20080115;20211108;Ingolstadt (Flugplatz)
+  2410;  364.00; 48.7111; 11.5363;20211109;        ;Ingolstadt (Flugplatz)

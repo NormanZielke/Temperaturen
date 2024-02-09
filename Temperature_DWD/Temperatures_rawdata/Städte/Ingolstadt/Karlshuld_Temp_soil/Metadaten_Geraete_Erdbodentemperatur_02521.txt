@@ -1,0 +1,8 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+2521;Karlshuld;11.3;48.68;374;-.02;19780101;19940331;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2521;Karlshuld;11.3;48.68;374;-.05;19780101;19940331;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2521;Karlshuld;11.3;48.68;374;-.1;19780101;19940331;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2521;Karlshuld;11.3;48.68;374;-.2;19780101;19940331;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2521;Karlshuld;11.3;48.68;374;-.5;19780101;19940331;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2521;Karlshuld;11.3;48.68;374;-1;19780101;19940331;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

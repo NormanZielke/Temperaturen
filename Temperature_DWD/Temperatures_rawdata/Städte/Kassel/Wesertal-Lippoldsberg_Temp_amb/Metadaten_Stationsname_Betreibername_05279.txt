@@ -1,0 +1,14 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  5279;Gewissenruh;18911201;19131130
+  5279;Lippoldsberg;19140301;19441231
+  5279;Lippoldsberg;19480621;19711130
+  5279;Wahlsburg-Lippoldsberg;19720101;20191231
+  5279;Wesertal-Lippoldsberg;20200101;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  5279;Wetterdienst;18911201;19131130
+  5279;Wetterdienst;19140301;19441231
+  5279;Wetterdienst;19480621;19521110
+  5279;DWD;19521111;19711130
+  5279;DWD;19720101;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

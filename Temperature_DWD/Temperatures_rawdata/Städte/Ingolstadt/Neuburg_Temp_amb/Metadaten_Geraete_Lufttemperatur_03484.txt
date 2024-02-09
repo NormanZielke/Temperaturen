@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+3484;Neuburg/Donau (Flugplatz);11.22;48.72;380;2;20020101;20071203;Thermograph;Temperaturmessung, konv.;eor;
+3484;Neuburg/Donau (Flugplatz);11.21;48.71;380;2;20071204;20170530;Thermograph;Temperaturmessung, konv.;eor;
+3484;Neuburg/Donau (Flugplatz);11.21;48.71;380;2;20170531;20171129;Thermograph;Temperaturmessung, konv.;eor;
+3484;Neuburg/Donau (Flugplatz);11.21;48.71;380;2;20171130;20191016;PT 100 (Luft);Temperaturmessung, elektr.;eor;
+3484;Neuburg/Donau (Flugplatz);11.21;48.71;380;2;20191017;20230426;PT 100 (Luft);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

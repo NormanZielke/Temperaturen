@@ -1,0 +1,13 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  5279;  135.00; 51.6265;  9.5354;18911201;19131130;Wesertal-Lippoldsberg
+  5279;  115.00; 51.6248;  9.5606;19140301;19441231;Wesertal-Lippoldsberg
+  5279;  216.00; 51.6172;  9.5907;19480621;19501003;Wesertal-Lippoldsberg
+  5279;  216.00; 51.6148;  9.5894;19501004;19550413;Wesertal-Lippoldsberg
+  5279;  113.00; 51.6206;  9.5575;19550414;19620731;Wesertal-Lippoldsberg
+  5279;  120.00; 51.6206;  9.5575;19620801;19630312;Wesertal-Lippoldsberg
+  5279;  111.00; 51.6210;  9.5530;19630313;19711130;Wesertal-Lippoldsberg
+  5279;  131.00; 51.6202;  9.5624;19720101;19750731;Wesertal-Lippoldsberg
+  5279;  131.00; 51.6214;  9.5614;19750801;19800527;Wesertal-Lippoldsberg
+  5279;  180.00; 51.6192;  9.5754;19800528;19820502;Wesertal-Lippoldsberg
+  5279;  180.00; 51.6193;  9.5753;19820503;20040831;Wesertal-Lippoldsberg
+  5279;  176.00; 51.6194;  9.5749;20040901;        ;Wesertal-Lippoldsberg
