@@ -57,7 +57,13 @@ df_Müncheberg = df_temperatures_2011(Müncheberg_raw_amb,Müncheberg_raw_soil)
 
 # --------------------------------------------------------------------------------------------------------------------->
 # ----> in Heckelberg there are missing values for t_amb & t_soil
-    # missing values in t_soil (see metadata -> "V_TE100") will be placed by linear approximation
+    # missing intervals
+        # temp_amb:     26.04.2011-17:00 -> 28.04.2011-09:00 [41]
+#                       01.07.2011-13:00 -> 01.07.2011-15:00 [3]
+        # temp_soil:    26.04.2011-17:00 -> 28.04.2011-09:00 [41]
+#                       29.06.2011-07:00 -> 29.06.2011-08:00 [2]
+#                       01.07.2011-13:00 -> 01.07.2011-15:00 [3]
+    # missing values in t_soil will be placed by linear approximation
     # to replace missing values in t_amb, we use weather station Zehdenick
 
 Zehdenick_raw_amb = pd.read_csv(r"Temperatures_rawdata\Zehdenick_Temp_amb\produkt_tu_stunde_19810101_20221231_05745.txt",
@@ -82,18 +88,15 @@ df_Heckelberg.loc["2011-07-01 16:00:00":"2011-12-31 23:00:00","temp_soil"] = Hec
 df_Heckelberg.loc["2011-01-01 00:00:00":"2011-04-26 16:00:00","temp_amb"] = Heckelberg_raw_amb.loc[2011010100:2011042616,'TT_TU'].values
 df_Heckelberg.loc["2011-04-28 10:00:00":"2011-07-01 12:00:00","temp_amb"] = Heckelberg_raw_amb.loc[2011042810:2011070112,'TT_TU'].values
 df_Heckelberg.loc["2011-07-01 16:00:00":"2011-12-31 23:00:00","temp_amb"] = Heckelberg_raw_amb.loc[2011070116:2011123123,'TT_TU'].values
-# missing values in t_soil (see metadata -> "V_TE100") will be placed by linear approximation
 
-missing_starts = ["2011-04-26 17:00:00","2011-06-29 07:00:00","2011-07-01 13:00:00"]
-missing_ends = ["2011-04-28 09:00:00","2011-06-29 08:00:00","2011-07-01 15:00:00"]
-
-    # function to approximate missing values
+    # function to approximate missing values in temp_soil
+        # if the missing interval is greater than or near 2 days (48 values), maybe you have to check if there are peaks
     # input values
-        # df
+        # df -> Dataframe with column named "temp_soil"
         # starting point of missing intervall
         # end point of missing intervall
     # output
-        # df of the weatherstation with timeseries of t_amb and t_soil
+        # missing intervals of df are be filled by linear approximation
 def approximate(df,missing_start_date,missing_end_date):
     missing_range = pd.date_range(start=missing_start_date, end=missing_end_date, freq='H')
     t_delta = (df.loc[df.index[df.index > pd.to_datetime(missing_end_date)].min(),"temp_soil"] -
@@ -108,30 +111,48 @@ def approximate(df,missing_start_date,missing_end_date):
     df.loc[missing_start_date:missing_end_date,"temp_soil"] = missing_values
     return
 
+missing_starts = ["2011-04-26 17:00:00","2011-06-29 07:00:00","2011-07-01 13:00:00"]
+missing_ends = ["2011-04-28 09:00:00","2011-06-29 08:00:00","2011-07-01 15:00:00"]
+
 for missing_start_date,missing_end_date in zip(missing_starts,missing_ends):
     approximate(df_Heckelberg,missing_start_date,missing_end_date)
 
+# check approximation for 26.04.2011-17:00 -> 28.04.2011-09:00 [41]
+    # plot around missing interval -> +- 1 week
+fig, axes = plt.subplots(1, 1, figsize=(8, 6))
+
+df_Heckelberg.loc["18.04.2011-17:00":"05.05.2011-09:00", "temp_soil"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
+df_Zehdenick.loc["18.04.2011-17:00":"05.05.2011-09:00", "temp_soil"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=1)
+#labeling
+axes.set_title("check approximation for Heckelberg in temp_soil \n with closest weatherstation Zedehnick",
+               fontsize = 12,family="serif")
+axes.set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes.yaxis.set_label_coords(-0.025, 0.980)
+axes.legend(["Heckelberg", "Zehdenick"], prop={"family": "serif"})
+plt.tight_layout()
+plt.savefig("plots/Heckelberg_check_approx.jpg", format="jpg")
+
 # ----> fill missing values of temp_amb
-    # plot timeseries through timeintervall of missing of Heckelberg and Zehdenick
+    # plot timeseries through timeintervalls of missing values of Heckelberg
     # to evaluate if we can replace the missing data with the data given by Zehdenick
 
 fig, axes = plt.subplots(2, 1, figsize=(12, 8))
+fig.suptitle("compare t_amb Heckelberg and Zehdenick",fontsize = 12,family="serif")
 df_Heckelberg.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"].plot(ax=axes[0], color="darkblue", linewidth=1, alpha=1)
 df_Zehdenick.loc["2011-04-25 00:00:00":"2011-05-02 00:00:00", "temp_amb"].plot(ax=axes[0], color="goldenrod", linewidth=1, alpha=1)
-
 df_Heckelberg.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"].plot(ax=axes[1], color="darkblue", linewidth=1, alpha=1)
 df_Zehdenick.loc["2011-06-28 00:00:00":"2011-07-03 00:00:00", "temp_amb"].plot(ax=axes[1], color="goldenrod", linewidth=1, alpha=1)
 #labeling
-axes[0].set_title("missing t_amb interval Heckelberg april",fontsize = 12,family="serif")
+axes[0].set_title("missing interval april",fontsize = 10,family="serif")
 axes[0].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
-axes[0].yaxis.set_label_coords(-0.060, 0.920)
+axes[0].yaxis.set_label_coords(-0.050, 0.920)
 axes[0].legend(["Heckelberg", "Zehdenick"], prop={"family": "serif"})
-axes[1].set_title("missing interval t_amb Heckelberg july",fontsize = 12,family="serif")
+axes[1].set_title("missing interval july",fontsize = 10,family="serif")
 axes[1].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
-axes[1].yaxis.set_label_coords(-0.060, 0.920)
+axes[1].yaxis.set_label_coords(-0.050, 0.920)
 axes[1].legend(["Heckelberg", "Zehdenick"], prop={"family": "serif"})
 plt.tight_layout()
-plt.savefig("Heckelberg_missingintervals", format="jpg")
+plt.savefig("plots/Heckelberg_missingintervals.jpg", format="jpg")
 #plt.show()
 
 df_Heckelberg.loc["2011-04-26 17:00:00":"2011-04-28 09:00:00","temp_amb"] = df_Zehdenick.loc["2011-04-26 17:00:00":"2011-04-28 09:00:00","temp_amb"]
@@ -220,7 +241,7 @@ def haversine(lon1,lat1,lon2,lat2):
         # input values
             # lon1,lat1,lon2,lat2
         # output
-            # distance in [km]
+            # df_distance with column "Distance" in [km]
 def closestweatherstations(lat,lon):
     distance_array = []
     lon1 = lon
@@ -284,7 +305,7 @@ df_Kösching.loc["2011-01-01 00:00:00":"2011-02-13 10:00:00", "temp_amb"] = Kös
 df_Kösching.loc["2011-02-14 01:00:00":"2011-12-31 23:00:00", "temp_amb"] = Kösching_raw_amb.loc[2011021401:2011123123, 'TT_TU'].values
 df_Kösching.loc["2011-01-01 00:00:00":"2011-02-13 08:00:00", "temp_soil"] = Kösching_raw_soil.loc[2011010100:2011021308, 'V_TE100'].values
 df_Kösching.loc["2011-02-14 08:00:00":"2011-12-31 23:00:00", "temp_soil"] = Kösching_raw_soil.loc[2011021408:2011123123, 'V_TE100'].values
-# fill dataframes of other weatherstations with data around the missing interval of t_amb for plotting
+# fill dataframes of other near weatherstations with data around the missing interval of t_amb for plotting
 df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Eichstätt_Landershofen_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
 df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Neuburg_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
 df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"] = Gelbelsee_raw_amb.loc[2011021205:2011021507, 'TT_TU'].values
@@ -293,49 +314,42 @@ df_inter = (df_Neuburg + df_Gelbelsee)/2
 
 # replace missing values for t_amb in df_Köschling
     # it seems that weatherstation delivered faulty measures before and after missing interval -> sea plot
-        # -> replace values in a bigger interval with interpolation between Neuburg Gelbelsee
 # plot
 fig, axes = plt.subplots(2, 1, figsize=(12, 8))
+fig.suptitle(" Weather Station Köching (Ingolstadt) \n Replacement t_amb missing interval february",fontsize=12,family="serif")
 df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="darkblue", linewidth=1, alpha=1)
 df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="goldenrod", linewidth=1, alpha=1)
 df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="forestgreen", linewidth=1, alpha=1)
 df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="black", linewidth=1, alpha=1, linestyle="--")
 df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[0], color="darkviolet", linewidth=1, alpha=1, linestyle=":")
-
-df_Kösching.loc["2011-02-13 03:00:00":"2011-02-14 07:00:00", "temp_amb"] = df_inter.loc["2011-02-13 03:00:00":"2011-02-14 07:00:00", "temp_amb"]
+# -> replace values in a bigger interval with interpolation between Neuburg Gelbelsee
+df_Kösching.loc["2011-02-13 04:00:00":"2011-02-14 07:00:00", "temp_amb"] = df_inter.loc["2011-02-13 03:00:00":"2011-02-14 07:00:00", "temp_amb"]
 
 df_Kösching.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="darkblue", linewidth=1, alpha=1)
 df_Neuburg.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="goldenrod", linewidth=1, alpha=1)
 df_Gelbelsee.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="forestgreen", linewidth=1, alpha=1)
 df_inter.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="black", linewidth=1, alpha=1, linestyle="--")
 df_Eichstätt_Landershofen.loc["2011-02-12 05:00:00":"2011-02-15 07:00:00", "temp_amb"].plot(ax=axes[1], color="darkviolet", linewidth=1, alpha=1, linestyle=":")
-
 # labeling
-axes[0].set_title("Replacement missing t_amb interval Kösching february",fontsize=12,family="serif")
+#axes[0].set_title("Replacement missing t_amb interval Kösching february",fontsize=10,family="serif")
 axes[0].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
-axes[0].yaxis.set_label_coords(-0.060, 0.920)
-axes[0].legend(["Kösching", "Neuburg", "Gelbelsee", "Neuburg/Gelbelsee (mean)", "Eichstätt-Landershofen"],
+axes[0].yaxis.set_label_coords(-0.040, 0.920)
+axes[0].legend(["Kösching = Ingolstadt", "Neuburg", "Gelbelsee", "Neuburg/Gelbelsee (mean)", "Eichstätt-Landershofen"],
             prop={"family": "serif"})
-
 axes[1].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
-axes[1].yaxis.set_label_coords(-0.060, 0.920)
-axes[1].legend(["Kösching", "Neuburg", "Gelbelsee", "Neuburg/Gelbelsee (mean)", "Eichstätt-Landershofen"],
+axes[1].yaxis.set_label_coords(-0.040, 0.920)
+axes[1].legend(["Kösching = Ingolstadt", "Neuburg", "Gelbelsee", "Neuburg/Gelbelsee (mean)", "Eichstätt-Landershofen"],
             prop={"family": "serif"})
 plt.tight_layout()
-plt.savefig("Kösching_missingintervals", format="jpg")
-
-plt.show()
-
-# replace missing values for t_amb in df_Köschling
-    # it seems that weatherstation delivered faulty measures before and after missing interval -> sea plot
-        # -> replace values in a bigger interval
+plt.savefig("plots/Kösching_missingintervals.jpg", format="jpg")
+#plt.show()
 
 missing_start_date = "2011-02-13 09:00:00"
 missing_end_date = "2011-02-14 07:00:00"
-approximate(df_Kösching,missing_start_date,missing_end_date)
-# print(df_Kösching.loc["2011-02-13 08:00:00":"2011-02-14 08:00:00", :])
+approximate(df_Kösching, missing_start_date, missing_end_date)
+# check -> df_Kösching.loc["2011-02-07 09:00:00":"2011-02-21 07:00:00","temp_soil"].plot()
 
-# Ingolstadt = Berlin-Kaniswall
+# Ingolstadt = Kösching
 data = {"temp_amb": {},
         "temp_soil": {}
 }
@@ -381,7 +395,7 @@ df_Warburg = pd.DataFrame(data, index=date_range)
 df_Wesertal_Lippoldsberg = pd.DataFrame(data, index=date_range)
 df_Eschwege = pd.DataFrame(data, index=date_range)
 
-# fill dataframe df_Kösching with known values
+# fill dataframe df_Kassel with known values
 df_Kassel.loc["2011-01-01 00:00:00":"2011-08-24 18:00:00", "temp_amb"] = Kassel_raw_amb.loc[2011010100:2011082418, 'TT_TU'].values
 df_Kassel.loc["2011-08-29 09:00:00":"2011-12-31 23:00:00", "temp_amb"] = Kassel_raw_amb.loc[2011082909:2011123123, 'TT_TU'].values
 df_Kassel.loc["2011-01-01 00:00:00":"2011-08-24 18:00:00", "temp_soil"] = Kassel_raw_soil.loc[2011010100:2011082418, 'V_TE100'].values
@@ -395,20 +409,24 @@ df_Fritzlar_Eder.loc["2011-08-25 05:00:00", "temp_amb"] = df_Fritzlar_Eder.loc["
 df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Warburg_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
 df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Wesertal_Lippoldsberg_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
 df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Eschwege_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
-
+# interpolation for missing values
+df_inter = (df_Wesertal_Lippoldsberg + df_Fritzlar_Eder)/2
 fig, axes = plt.subplots(1, 1, figsize=(12, 8))
 df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
-df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=0.6, linestyle="-.")
+df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="red", linewidth=1, alpha=0.6, linestyle="-.")
 df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="forestgreen", linewidth=1, alpha=0.6, linestyle="--")
 df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=0.6, linestyle=":")
 df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkviolet", linewidth=1, alpha=0.6, linestyle="-.")
 
+df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
+df_inter.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=0.6, linestyle="--")
 # labeling
-axes.set_title("missing t_amb interval Kassel august and neraby weatherstaions",fontsize=12,family="serif")
+axes.set_title("Weatherstation Kassel and nearby weatherstaions \n t_amb missing interval august",fontsize=12,family="serif")
 axes.set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
 axes.yaxis.set_label_coords(-0.020, 0.980)
 axes.legend(["Kassel","Fritzlar_Eder","Warburg","Wesertal_Lippoldsberg","Eschwege"],
             prop={"family": "serif"})
+plt.savefig("plots/Kassel_missing_interval.jpg", format="jpg")
 plt.tight_layout()
 plt.show()
 
