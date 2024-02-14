@@ -492,4 +492,49 @@ plt.savefig("plots/Kassel_check_approx.jpg", format="jpg")
 df_Kassel.insert(0,"ags_id", np.full(len(date_range),position_cities["Kassel"]["ags_id"]))
 
 # --------------------------------------------------------------------------------------------------------------------->
-# DATA -> Kassel
+# DATA -> Bocholt
+
+weatherstations_BOH = closestweatherstations(position_cities["Bocholt"]["lat"],position_cities["Bocholt"]["lon"])
+#print("Closest weather stations for t_amb near Kassel")
+#print(weatherstations_KS.head(8))
+
+    # look at weatherstations nearby
+        # Bocholt               --> not in operation anymore
+        # Bocholt-Liedern       --> not in operation anymore
+        # Borken                --> status ok
+        # Kalkar                --> many missing values in 2011
+        # Kleve                 --> status ok - temp_soil not available
+    # use data from Borken und Kleve -> build mean for temp_amb
+
+Borken_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Borken_Temp_amb\produkt_tu_stunde_20040601_20221231_00617.txt",
+                             index_col=1, sep=";")
+Borken_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Borken_Temp_soil\produkt_eb_stunde_20040601_20221231_00617.txt",
+                              index_col=1, sep=";")
+Kleve_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Kleve_Temp_amb\produkt_tu_stunde_20040701_20221231_02629.txt",
+                            index_col=1, sep=";")
+
+df_Borken = df_temperatures_2011(Borken_raw_amb,Borken_raw_soil)
+df_Kleve = df_temperatures_2011(Kleve_raw_amb,Borken_raw_soil)
+
+# interpolate values for Bocholt with mean between Borken and Kleve
+df_Bocholt = (df_Borken + df_Kleve) /2
+
+df_Bocholt.insert(0,"ags_id", np.full(len(date_range),position_cities["Bocholt"]["ags_id"]))
+# Test if columns are full
+# df_Bocholt.loc[:,"temp_amb"].isna().unique()
+# df_Bocholt.loc[:,"temp_soil"].isna().unique()
+
+# --------------------------------------------------------------------------------------------------------------------->
+# DATA -> Kiel
+
+weatherstations_KI = closestweatherstations(position_cities["Kiel"]["lat"],position_cities["Kiel"]["lon"])
+#print("Closest weather stations for t_amb near Kassel")
+#print(weatherstations_KS.head(8))
+
+    # look at weatherstations nearby
+        # Bocholt               --> not in operation anymore
+        # Bocholt-Liedern       --> not in operation anymore
+        # Borken                --> status ok
+        # Kalkar                --> many missing values in 2011
+        # Kleve                 --> status ok - temp_soil not available
+    # use data from Borken und Kleve -> build mean for temp_amb
