@@ -1,0 +1,22 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.05;20010403;20061231;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.05;20070101;20070618;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.05;20070619;20190513;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.05;20190514;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.1;20010403;20061231;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.1;20070101;20070618;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.1;20070619;20190513;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.1;20190514;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.2;20010403;20061231;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.2;20070101;20070618;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.2;20070619;20190513;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.2;20190514;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.5;20010403;20061231;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-.5;20070101;20070618;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.5;20070619;20190513;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-.5;20190514;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-1;20010403;20061231;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;174;-1;20070101;20070618;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-1;20070619;20190513;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+1504;Fritzlar (Flugplatz);9.28;51.12;172;-1;20190514;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

@@ -1,0 +1,18 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5347;Warburg;9.17;51.5;225;-.02;19880201;19991012;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.17;51.5;225;-.05;19880201;19991012;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;236;-.05;19991013;20060928;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;235.8;-.05;20060929;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.17;51.5;225;-.1;19880201;19991012;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;236;-.1;19991013;20060928;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;235.8;-.1;20060929;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.17;51.5;225;-.2;19880201;19991012;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;236;-.2;19991013;20060928;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;235.8;-.2;20060929;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.17;51.5;225;-.5;19880201;19991012;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;236;-.5;19991013;20060928;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;235.8;-.5;20060929;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.17;51.5;225;-1;19880201;19991012;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;236;-1;19991013;20060928;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+5347;Warburg;9.11;51.5;235.8;-1;20060929;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

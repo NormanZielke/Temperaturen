@@ -343,7 +343,7 @@ axes[1].legend(["Kösching = Ingolstadt", "Neuburg", "Gelbelsee", "Neuburg/Gelbe
 plt.tight_layout()
 plt.savefig("plots/Kösching_missingintervals.jpg", format="jpg")
 #plt.show()
-
+# interpolate missing values for temp_soil
 missing_start_date = "2011-02-13 09:00:00"
 missing_end_date = "2011-02-14 07:00:00"
 approximate(df_Kösching, missing_start_date, missing_end_date)
@@ -357,6 +357,10 @@ df_Ingolstadt = pd.DataFrame(data,index=date_range)
 df_Ingolstadt.loc[:,["temp_amb", "temp_soil"]] = df_Kösching.loc[:,["temp_amb", "temp_soil"]]
 df_Ingolstadt.insert(0,"ags_id", np.full(len(date_range),position_cities["Ingolstadt"]["ags_id"]))
 
+# Test if columns are full
+# df_Ingolstadt.loc[:,"temp_amb"].isna().unique()
+# df_Ingolstadt.loc[:,"temp_soil"].isna().unique()
+
 # --------------------------------------------------------------------------------------------------------------------->
 # DATA -> Kassel
 weatherstations_KS = closestweatherstations(position_cities["Kassel"]["lat"],position_cities["Kassel"]["lon"])
@@ -364,14 +368,14 @@ weatherstations_KS = closestweatherstations(position_cities["Kassel"]["lat"],pos
 #print(weatherstations_KS.head(8))
 
 # closest weatherstation is "Kassel" --> set as t_amb - Kassel
-    # -> missing data interval in t_amb 24.08.2011-19:00 -> 29.08.2011-08:00    [110]
+    # -> missing data interval in temp_amb 24.08.2011-19:00 -> 29.08.2011-08:00    [110]
     # look at weatherstations nearby
         # Schauenburg-Elgershausen --> in operation since 2013
         # Fritzlar/Eder         --> one missing timestamp in interval 25.08.2011-05:00  [1]
         # Warburg               --> no missing values
         # Wesertal-Lippoldsberg --> no missing values
         # Eschwege              --> no missing values
-    # -> missing data interval in t_soil 24.08.2011-19:00	-> 29.08.2011-08:00	[110]
+    # -> missing data interval in temp_soil 24.08.2011-19:00 -> 29.08.2011-08:00	[110]
 
 Kassel_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Kassel_Temp_amb\produkt_tu_stunde_19480101_20131031_02532.txt",
                              index_col=1, sep=";")
@@ -379,7 +383,11 @@ Kassel_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Kassel_Temp_
                               index_col=1, sep=";")
 Fritzlar_Eder_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Fritzlar_Eder_Temp_amb\produkt_tu_stunde_20020101_20221231_01504.txt",
                                     index_col=1, sep=";")
+Fritzlar_Eder_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Fritzlar_Eder_Temp_soil\produkt_eb_stunde_20010403_20221231_01504.txt",
+                                    index_col=1, sep=";")
 Warburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Warburg_Temp_amb\produkt_tu_stunde_20010402_20221231_05347.txt",
+                              index_col=1, sep=";")
+Warburg_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Warburg_Temp_soil\produkt_eb_stunde_19880201_20221231_05347.txt",
                               index_col=1, sep=";")
 Wesertal_Lippoldsberg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Wesertal-Lippoldsberg_Temp_amb\produkt_tu_stunde_20040901_20221231_05279.txt",
                                             index_col=1, sep=";")
@@ -401,7 +409,7 @@ df_Kassel.loc["2011-08-29 09:00:00":"2011-12-31 23:00:00", "temp_amb"] = Kassel_
 df_Kassel.loc["2011-01-01 00:00:00":"2011-08-24 18:00:00", "temp_soil"] = Kassel_raw_soil.loc[2011010100:2011082418, 'V_TE100'].values
 df_Kassel.loc["2011-08-29 09:00:00":"2011-12-31 23:00:00", "temp_soil"] = Kassel_raw_soil.loc[2011082909:2011123123, 'V_TE100'].values
 
-# fill dataframes of other weatherstations with data around the missing interval of t_amb for plotting
+# fill dataframes of other weatherstations with data around the missing interval(s) of t_amb for plotting
 df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-08-25 04:00:00", "temp_amb"] = Fritzlar_Eder_raw_amb.loc[2011081805:2011082504, 'TT_TU'].values
 df_Fritzlar_Eder.loc["2011-08-25 06:00:00":"2011-09-06 07:00:00", "temp_amb"] = Fritzlar_Eder_raw_amb.loc[2011082506:2011090607, 'TT_TU'].values
 # in Fritzlar_Eder we replace the missing value with one timestamp before
@@ -409,26 +417,79 @@ df_Fritzlar_Eder.loc["2011-08-25 05:00:00", "temp_amb"] = df_Fritzlar_Eder.loc["
 df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Warburg_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
 df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Wesertal_Lippoldsberg_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
 df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00","temp_amb"] = Eschwege_raw_amb.loc[2011081805:2011090607, 'TT_TU'].values
+
+# ------> temp_amp
 # interpolation for missing values
 df_inter = (df_Wesertal_Lippoldsberg + df_Fritzlar_Eder)/2
-fig, axes = plt.subplots(1, 1, figsize=(12, 8))
-df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
-df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="red", linewidth=1, alpha=0.6, linestyle="-.")
-df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="forestgreen", linewidth=1, alpha=0.6, linestyle="--")
-df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=0.6, linestyle=":")
-df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkviolet", linewidth=1, alpha=0.6, linestyle="-.")
 
-df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
-df_inter.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes, color="black", linewidth=1, alpha=0.6, linestyle="--")
+fig, axes = plt.subplots(2, 1, figsize=(12, 8))
+#fig.suptitle("Weatherstation Kassel and nearby weatherstaions \n t_amb missing interval august",fontsize=12,family="serif")
+df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[0], color="darkblue", linewidth=1, alpha=1)
+df_Fritzlar_Eder.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[0], color="red", linewidth=1, alpha=0.6, linestyle="-.")
+df_Warburg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[0], color="forestgreen", linewidth=1, alpha=0.6, linestyle="--")
+df_Wesertal_Lippoldsberg.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[0], color="black", linewidth=1, alpha=0.6, linestyle=":")
+df_Eschwege.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[0], color="darkviolet", linewidth=1, alpha=0.6, linestyle="-.")
+
+df_Kassel.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[1], color="darkblue", linewidth=1, alpha=1)
+df_inter.loc["2011-08-18 05:00:00":"2011-09-06 07:00:00", "temp_amb"].plot(ax=axes[1], color="black", linewidth=1, alpha=0.6, linestyle="--")
 # labeling
-axes.set_title("Weatherstation Kassel and nearby weatherstaions \n t_amb missing interval august",fontsize=12,family="serif")
-axes.set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
-axes.yaxis.set_label_coords(-0.020, 0.980)
-axes.legend(["Kassel","Fritzlar_Eder","Warburg","Wesertal_Lippoldsberg","Eschwege"],
+axes[0].set_title("Weatherstation Kassel and nearby weatherstaions \n t_amb missing interval august",fontsize=12,family="serif")
+axes[0].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes[0].yaxis.set_label_coords(-0.040, 0.920)
+axes[0].legend(["Kassel","Fritzlar_Eder","Warburg","Wesertal_Lippoldsberg","Eschwege"],
+               loc='upper right', ncol=2, prop={"family": "serif"})
+# instead of loc='upper right' -> bbox_to_anchor=(0.60, 0.8) possible
+
+axes[1].set_title("Weatherstation Kassel and interpolation",fontsize=12,family="serif")
+axes[1].set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes[1].yaxis.set_label_coords(-0.040, 0.920)
+axes[1].legend(["Kassel","Wesertal_Lippoldsberg/Fritzlar_Eder (mean)"],
             prop={"family": "serif"})
+
 plt.savefig("plots/Kassel_missing_interval.jpg", format="jpg")
 plt.tight_layout()
-plt.show()
+# plt.show()
 
-# -> difference between Kassel and Fritzlar (closest weatherstation) <= 2°C
+# -> missing data interval in t_amb 24.08.2011-19:00 -> 29.08.2011-08:00    [110]
+# replace missing values in df_Kassel["temp_amb"] with interpolation
 
+df_Kassel.loc["2011-08-24 19:00:00":"2011-08-29 08:00:00", "temp_amb"] = df_inter.loc["2011-08-24 19:00:00":"2011-08-29 08:00:00", "temp_amb"]
+
+# ------> temp_soil
+# -> missing data interval in temp_soil 24.08.2011-19:00 -> 29.08.2011-08:00	[110]
+
+# interpolate missing values for temp_soil
+missing_start_date = "2011-08-24 19:00:00"
+missing_end_date = "2011-08-29 08:00:00"
+approximate(df_Kassel, missing_start_date, missing_end_date)
+# check -> df_Kassel.loc["2011-08-18 19:00:00":"2011-09-04 08:00:00", "temp_soil"].plot()
+
+# check approximation for 24.08.2011-19:00 -> 29.08.2011-08:00  [41]
+    # plot around missing interval -> +- 1 week
+    # compare with weatherstation Warburg
+df_Warburg.loc["2011-08-18 19:00:00":"2011-09-04 08:00:00","temp_soil"] = Warburg_raw_soil.loc[2011081819:2011090408, 'V_TE100'].values
+df_Kassel.loc["2011-08-18 19:00:00":"2011-09-04 08:00:00",]
+
+start_date = "2011-08-18 19:00:00"
+end_date = "2011-09-04 08:00:00"
+
+fig, axes = plt.subplots(1, 1, figsize=(12, 8))
+df_Kassel.loc[start_date:end_date, "temp_soil"].plot(ax=axes, color="darkblue", linewidth=1, alpha=1)
+df_Warburg.loc[start_date:end_date, "temp_soil"].plot(ax=axes, color="goldenrod", linewidth=1, alpha=0.6)
+# labeling
+axes.set_title("Weatherstation Kassel and Warburg \n temp_soil missing interval august",fontsize=12,family="serif")
+axes.set_ylabel("[°C]", fontsize=10, family="monospace", rotation="horizontal")
+axes.yaxis.set_label_coords(-0.0550, 0.980)
+axes.legend(["Kassel","Warburg"],loc='upper right', prop={"family": "serif"})
+#axes.set_facecolor('lavender')
+plt.tight_layout()
+plt.savefig("plots/Kassel_check_approx.jpg", format="jpg")
+
+# Test if columns are full
+# df_Kassel.loc[:,"temp_amb"].isna().unique()
+# df_Kassel.loc[:,"temp_soil"].isna().unique()
+
+df_Kassel.insert(0,"ags_id", np.full(len(date_range),position_cities["Kassel"]["ags_id"]))
+
+# --------------------------------------------------------------------------------------------------------------------->
+# DATA -> Kassel
