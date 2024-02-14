@@ -1,0 +1,9 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  2564;    4.00; 54.3767; 10.1601;19270201;19350331;Kiel-Holtenau
+  2564;   26.00; 54.3766; 10.1485;19350401;19460807;Kiel-Holtenau
+  2564;    6.00; 54.3696; 10.1522;19460808;19671231;Kiel-Holtenau
+  2564;   27.00; 54.3773; 10.1469;19680101;19850831;Kiel-Holtenau
+  2564;   27.00; 54.3761; 10.1434;19850901;19860531;Kiel-Holtenau
+  2564;   27.00; 54.3761; 10.1434;19860601;20130228;Kiel-Holtenau
+  2564;   28.41; 54.3776; 10.1424;20130301;20190917;Kiel-Holtenau
+  2564;   28.41; 54.3776; 10.1424;20190918;        ;Kiel-Holtenau

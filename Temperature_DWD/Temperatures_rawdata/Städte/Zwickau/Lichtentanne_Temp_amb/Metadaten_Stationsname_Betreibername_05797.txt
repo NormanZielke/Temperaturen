@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  5797;Zwickau-Planitz;18290601;20051130
+  5797;Lichtentanne;20051201;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  5797;Wetterdienst;18290601;19491231
+  5797;Meteorologischer Dienst der DDR;19500101;19901231
+  5797;DWD;19910101;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

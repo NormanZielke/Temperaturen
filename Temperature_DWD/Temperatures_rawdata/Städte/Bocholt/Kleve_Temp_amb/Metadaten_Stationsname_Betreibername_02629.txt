@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2629;Kleve;18480101;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2629;Wetterdienst;18480101;19521110
+  2629;DWD;19521111;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

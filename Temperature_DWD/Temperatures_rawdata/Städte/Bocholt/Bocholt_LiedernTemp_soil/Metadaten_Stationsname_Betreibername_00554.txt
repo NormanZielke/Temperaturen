@@ -1,0 +1,11 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+   554;Bocholt;19451001;19531221
+   554;Bocholt-Liedern;19740904;20060228
+   554;Bocholt-Liedern (Wasserwerk);20150408;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+   554;Wetterdienst;19451001;19521110
+   554;DWD;19521111;19531221
+   554;DWD;19740904;20060228
+   554;DWD;20150408;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

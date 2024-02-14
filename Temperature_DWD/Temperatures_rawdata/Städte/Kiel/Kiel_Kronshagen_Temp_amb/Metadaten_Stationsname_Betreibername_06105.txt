@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  6105;Ostenfeld (Rendsburg);19980512;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  6105;DWD;19980512;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

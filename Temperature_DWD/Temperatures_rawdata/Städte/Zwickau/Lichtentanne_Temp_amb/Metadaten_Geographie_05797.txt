@@ -1,0 +1,5 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  5797;  327.00; 50.6956; 12.4249;18290601;19941212;Lichtentanne
+  5797;  347.00; 50.6896; 12.4806;19941213;20051130;Lichtentanne
+  5797;  348.50; 50.6879; 12.4329;20051201;20080731;Lichtentanne
+  5797;  348.50; 50.6879; 12.4329;20080801;        ;Lichtentanne

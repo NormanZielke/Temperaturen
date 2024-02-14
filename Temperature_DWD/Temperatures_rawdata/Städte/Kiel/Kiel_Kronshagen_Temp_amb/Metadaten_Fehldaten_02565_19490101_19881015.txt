@@ -1,0 +1,5 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
+2565;Kiel-Kronshagen;TT_TU;01.01.1949;15.10.1988;12;Gesamt_Messzeitraum;eor;                                                                                                                            
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+2565;Kiel-Kronshagen;TT_TU;28.02.1985-01:00;28.02.1985-12:00;12;;eor;                                                                                                                                   
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

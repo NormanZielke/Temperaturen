@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  7329;Treuen;20050520;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  7329;DWD;20050520;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

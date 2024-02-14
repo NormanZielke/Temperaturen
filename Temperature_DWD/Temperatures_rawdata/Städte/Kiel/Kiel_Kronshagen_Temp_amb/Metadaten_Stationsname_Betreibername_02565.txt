@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2565;Kiel-Wik;19400101;19740930
+  2565;Kiel-Kronshagen;19741001;19881015
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2565;DWD;19400101;19881015
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

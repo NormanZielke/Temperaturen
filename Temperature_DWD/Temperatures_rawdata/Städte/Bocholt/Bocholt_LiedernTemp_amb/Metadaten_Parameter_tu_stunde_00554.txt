@@ -1,0 +1,13 @@
+Stations_ID;Von_Datum;Bis_Datum;Stationsname;Parameter;Parameterbeschreibung;Einheit;Datenquelle (Strukturversion=SV);Zusatz-Info;Besonderheiten;Literaturhinweis;eor;
+554;19740901;19940531;Bocholt-Liedern (Wasserwerk);RF_TU;relative Feuchte;%;Daten der Temperatur und relativen Feuchte (Stundenwerte) aus analogen Registrierungen (Thermohygrograph);Stundenwerte in MEZ;;;eor;
+554;19940601;19981009;Bocholt-Liedern (Wasserwerk);RF_TU;relative Feuchte;%;Daten der Temperatur und relativen Feuchte (Stundenwerte) von automatischen Stationen der 1. Generation (MIRIAM/AFMS2, ESAU-Daten);Stundenwerte in UTC;;;eor;
+554;19981009;19981012;Bocholt-Liedern (Wasserwerk);RF_TU;relative Feuchte;%;Daten der Temperatur und relativen Feuchte (Stundenwerte) aus analogen Registrierungen (Thermohygrograph);Stundenwerte in MEZ;;;eor;
+554;19981012;20010401;Bocholt-Liedern (Wasserwerk);RF_TU;relative Feuchte;%;Daten der Temperatur und relativen Feuchte (Stundenwerte) von automatischen Stationen der 1. Generation (MIRIAM/AFMS2, ESAU-Daten);Stundenwerte in UTC;;;eor;
+554;20010401;20060228;Bocholt-Liedern (Wasserwerk);RF_TU;relative Feuchte;%;Daten der Temperatur und relativen Feuchte (Stundenwerte) generiert aus SYNOP-Meldungen (nach dem 01.04.2001);Stundenwerte in UTC;;;eor;
+554;19740901;19940531;Bocholt-Liedern (Wasserwerk);TT_TU;Lufttemperatur;°C;Daten der Temperatur und relativen Feuchte (Stundenwerte) aus analogen Registrierungen (Thermohygrograph);Stundenwerte in MEZ;;;eor;
+554;19940601;19981009;Bocholt-Liedern (Wasserwerk);TT_TU;Lufttemperatur;°C;Daten der Temperatur und relativen Feuchte (Stundenwerte) von automatischen Stationen der 1. Generation (MIRIAM/AFMS2, ESAU-Daten);Stundenwerte in UTC;;;eor;
+554;19981009;19981012;Bocholt-Liedern (Wasserwerk);TT_TU;Lufttemperatur;°C;Daten der Temperatur und relativen Feuchte (Stundenwerte) aus analogen Registrierungen (Thermohygrograph);Stundenwerte in MEZ;;;eor;
+554;19981012;20010401;Bocholt-Liedern (Wasserwerk);TT_TU;Lufttemperatur;°C;Daten der Temperatur und relativen Feuchte (Stundenwerte) von automatischen Stationen der 1. Generation (MIRIAM/AFMS2, ESAU-Daten);Stundenwerte in UTC;;;eor;
+554;20010401;20060228;Bocholt-Liedern (Wasserwerk);TT_TU;Lufttemperatur;°C;Daten der Temperatur und relativen Feuchte (Stundenwerte) generiert aus SYNOP-Meldungen (nach dem 01.04.2001);Stundenwerte in UTC;;;eor;
+Legende: FT  = Folgetag; GZ = Gesetzliche Zeit
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

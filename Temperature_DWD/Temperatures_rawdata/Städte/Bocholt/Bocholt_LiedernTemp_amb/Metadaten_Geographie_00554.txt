@@ -1,0 +1,4 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+   554;   22.00; 51.8274;  6.5267;19451001;19531221;Bocholt-Liedern (Wasserwerk)
+   554;   20.90; 51.8300;  6.5352;19740904;20060228;Bocholt-Liedern (Wasserwerk)
+   554;   23.00; 51.8293;  6.5365;20150408;        ;Bocholt-Liedern (Wasserwerk)

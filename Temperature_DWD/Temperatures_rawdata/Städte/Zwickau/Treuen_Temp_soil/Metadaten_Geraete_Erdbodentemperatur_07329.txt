@@ -1,0 +1,8 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+7329;Treuen;12.29;50.55;465;-.05;20051101;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+7329;Treuen;12.29;50.55;465;-.1;20051101;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+7329;Treuen;12.29;50.55;465;-.2;20051101;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+7329;Treuen;12.29;50.55;465;-.5;20051101;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+7329;Treuen;12.29;50.55;465;-1;20051101;20210623;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+7329;Treuen;12.29;50.55;465;-1;20210629;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

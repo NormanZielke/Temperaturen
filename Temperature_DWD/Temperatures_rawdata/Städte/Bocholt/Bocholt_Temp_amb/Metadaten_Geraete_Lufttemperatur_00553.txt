@@ -1,0 +1,4 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+553;Bocholt (Marienschule);;;;;19510101;19531221;Gerätetyp unbekannt;Temperaturmessung, konv.;eor;
+553;Bocholt (Marienschule);6.61;51.84;25;2;19531222;19740831;Thermograph;Temperaturmessung, konv.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

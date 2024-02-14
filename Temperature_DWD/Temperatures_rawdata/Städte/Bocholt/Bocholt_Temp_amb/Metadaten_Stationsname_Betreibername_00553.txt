@@ -1,0 +1,6 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+   553;Bocholt (Marienschule);19010101;19741231
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+   553;DWD;19010101;19741231
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

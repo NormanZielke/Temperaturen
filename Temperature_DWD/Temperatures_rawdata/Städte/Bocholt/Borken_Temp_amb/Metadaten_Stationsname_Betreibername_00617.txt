@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+   617;Borken in Westfalen;18911001;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+   617;Wetterdienst;18911001;19521110
+   617;DWD;19521111;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

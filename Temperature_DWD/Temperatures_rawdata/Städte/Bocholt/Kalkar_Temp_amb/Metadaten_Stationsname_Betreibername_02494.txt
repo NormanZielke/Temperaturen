@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2494;Kalkar;19820401;20130930
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2494;GeophysBdBw;19820401;20021231
+  2494;GeoInfoDBw;20030101;20130930
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

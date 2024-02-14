@@ -1,0 +1,4 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+5797;Lichtentanne;12.43;50.69;348.5;2;20051201;20180910;Feuchtesonde HMP45D;Feuchtemessung, elektr.;eor;
+5797;Lichtentanne;12.43;50.69;348.5;2;20180404;20230426;EE33;Feuchtemessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

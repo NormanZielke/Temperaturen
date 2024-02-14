@@ -1,0 +1,5 @@
+Stations_id;Stationshoehe;Geogr.Breite;Geogr.Laenge;von_datum;bis_datum;Stationsname
+  2565;    8.00; 54.3534; 10.1398;19400101;19501231;Kiel-Kronshagen
+  2565;    4.10; 54.3534; 10.1398;19510101;19651109;Kiel-Kronshagen
+  2565;    7.00; 54.3565; 10.1393;19651110;19740930;Kiel-Kronshagen
+  2565;   17.00; 54.3378; 10.0929;19741001;19881015;Kiel-Kronshagen

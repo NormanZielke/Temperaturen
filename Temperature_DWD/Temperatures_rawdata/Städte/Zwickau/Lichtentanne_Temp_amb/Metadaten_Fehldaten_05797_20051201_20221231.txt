@@ -1,0 +1,13 @@
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Gesamt_Fehlwerte;Beschreibung;eor;                                                                                                              
+5797;Lichtentanne;TT_TU;01.12.2005;04.05.2023;254;Gesamt_Messzeitraum;eor;                                                                                                                              
+5797;Lichtentanne;RF_TU;01.12.2005;04.05.2023;254;Gesamt_Messzeitraum;eor;                                                                                                                              
+Stations_ID;Stations_Name;Parameter;Von_Datum;Bis_Datum;Anzahl_Fehlwerte;Beschreibung;eor;                                                                                                              
+5797;Lichtentanne;TT_TU;03.10.2012-15:00;03.10.2012-15:00;1;;eor;                                                                                                                                       
+5797;Lichtentanne;TT_TU;03.10.2012-17:00;09.10.2012-10:00;138;;eor;                                                                                                                                     
+5797;Lichtentanne;TT_TU;14.12.2017-12:00;18.12.2017-12:00;97;;eor;                                                                                                                                      
+5797;Lichtentanne;TT_TU;18.01.2018-17:00;19.01.2018-10:00;18;;eor;                                                                                                                                      
+5797;Lichtentanne;RF_TU;03.10.2012-15:00;03.10.2012-15:00;1;;eor;                                                                                                                                       
+5797;Lichtentanne;RF_TU;03.10.2012-17:00;09.10.2012-10:00;138;;eor;                                                                                                                                     
+5797;Lichtentanne;RF_TU;14.12.2017-12:00;18.12.2017-12:00;97;;eor;                                                                                                                                      
+5797;Lichtentanne;RF_TU;18.01.2018-17:00;19.01.2018-10:00;18;;eor;                                                                                                                                      
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --                                                                                                                                                    

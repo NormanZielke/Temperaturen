@@ -1,0 +1,13 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.02;19810101;19911031;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.05;19810101;19940524;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.05;19940525;20060228;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.1;19810101;19940524;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.1;19940525;20060228;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.2;19810101;19940524;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.2;19940525;20060228;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.5;19810101;19940524;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-.5;19940525;20060228;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-1;19810101;19940524;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+554;Bocholt-Liedern;6.54;51.83;20.9;-1;19940525;20060228;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

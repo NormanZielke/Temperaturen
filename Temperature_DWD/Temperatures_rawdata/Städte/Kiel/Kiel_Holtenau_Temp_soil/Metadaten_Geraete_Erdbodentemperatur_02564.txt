@@ -1,0 +1,13 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+2564;Kiel-Holtenau;10.14;54.38;27;-.02;19860601;19940731;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2564;Kiel-Holtenau;10.14;54.38;27;-.05;19860601;20130228;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2564;Kiel-Holtenau;10.14;54.38;28.41;-.05;20130501;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2564;Kiel-Holtenau;10.14;54.38;27;-.1;19860601;20130228;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2564;Kiel-Holtenau;10.14;54.38;28.41;-.1;20130501;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2564;Kiel-Holtenau;10.14;54.38;27;-.2;19860601;20130228;Erdbodenthermometer;Temperaturmessung, konv.;eor;
+2564;Kiel-Holtenau;10.14;54.38;28.41;-.2;20130501;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2564;Kiel-Holtenau;10.14;54.38;27;-.5;19860601;20130228;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2564;Kiel-Holtenau;10.14;54.38;28.41;-.5;20130501;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+2564;Kiel-Holtenau;10.14;54.38;27;-1;19860601;20130228;Erdboden-Tiefenthermometer;Temperaturmessung, konv.;eor;
+2564;Kiel-Holtenau;10.14;54.38;28.41;-1;20130501;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

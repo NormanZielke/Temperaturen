@@ -1,0 +1,9 @@
+Stations_ID;Stationsname;Von_Datum;Bis_Datum
+  2564;Kiel-Holtenau;19270201;
+
+Stations_ID;Betreibername;Von_Datum;Bis_Datum
+  2564;Wetterdienst;19270201;19510116
+  2564;GeophysBdBw;19510117;20021231
+  2564;GeoInfoDBw;20030101;20121231
+  2564;DWD;20130101;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

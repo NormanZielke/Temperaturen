@@ -1,0 +1,7 @@
+Stations_ID;Stationsname;Geo. Laenge [Grad];Geo. Breite [Grad];Stationshoehe [m];Geberhoehe ueber Grund [m];Von_Datum;Bis_Datum;Geraetetyp Name;Messverfahren;eor;
+617;Borken in Westfalen;6.89;51.87;47;-.05;20040601;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+617;Borken in Westfalen;6.89;51.87;47;-.1;20040601;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+617;Borken in Westfalen;6.89;51.87;47;-.2;20040601;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+617;Borken in Westfalen;6.89;51.87;47;-.5;20040601;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+617;Borken in Westfalen;6.89;51.87;47;-1;20040601;20230426;PT 100 (Erdboden);Temperaturmessung, elektr.;eor;
+generiert: 05.05.2023 --  Deutscher Wetterdienst  --

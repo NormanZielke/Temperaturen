@@ -186,17 +186,6 @@ df_Erkner.insert(0,"ags_id", np.full(len(date_range),12067124))
 df_Grünheide_Mark = (df_Berlin_Kaniswall + df_Müncheberg)/2
 df_Grünheide_Mark.insert(0,"ags_id",np.full(len(date_range),12067201))
 
-df = pd.concat([df_Rüdersdorf,df_Strausberg,df_Erkner,df_Grünheide_Mark])
-df.sort_index(inplace=True)
-
-data = dict(timestamp=df.index,
-            ags_id=df.loc[:, "ags_id"].values,
-            temp_amb=df.loc[:, "temp_amb"].values.round(2),
-            temp_soil=df.loc[:, "temp_soil"].values.round(2))
-temperatures_2011 = pd.DataFrame(data)
-
-temperatures_2011.to_csv("temperatures_2011",index=False)
-
 # --------------------------------------------------------------------------------------------------------------------->
 # all cities are located in different federal states (Bundesländern)
     # create script, which deliver DataFrame contains values about weatherstations closest to a certain geo point
@@ -495,8 +484,6 @@ df_Kassel.insert(0,"ags_id", np.full(len(date_range),position_cities["Kassel"]["
 # DATA -> Bocholt
 
 weatherstations_BOH = closestweatherstations(position_cities["Bocholt"]["lat"],position_cities["Bocholt"]["lon"])
-#print("Closest weather stations for t_amb near Kassel")
-#print(weatherstations_KS.head(8))
 
     # look at weatherstations nearby
         # Bocholt               --> not in operation anymore
@@ -512,7 +499,7 @@ Borken_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Borken_Temp
                               index_col=1, sep=";")
 Kleve_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Kleve_Temp_amb\produkt_tu_stunde_20040701_20221231_02629.txt",
                             index_col=1, sep=";")
-
+# collect data for 2011
 df_Borken = df_temperatures_2011(Borken_raw_amb,Borken_raw_soil)
 df_Kleve = df_temperatures_2011(Kleve_raw_amb,Borken_raw_soil)
 
@@ -528,13 +515,60 @@ df_Bocholt.insert(0,"ags_id", np.full(len(date_range),position_cities["Bocholt"]
 # DATA -> Kiel
 
 weatherstations_KI = closestweatherstations(position_cities["Kiel"]["lat"],position_cities["Kiel"]["lon"])
-#print("Closest weather stations for t_amb near Kassel")
-#print(weatherstations_KS.head(8))
 
     # look at weatherstations nearby
-        # Bocholt               --> not in operation anymore
-        # Bocholt-Liedern       --> not in operation anymore
-        # Borken                --> status ok
-        # Kalkar                --> many missing values in 2011
-        # Kleve                 --> status ok - temp_soil not available
-    # use data from Borken und Kleve -> build mean for temp_amb
+        # Kiel-Kronshagen       --> not in operation anymore
+        # Kiel-Holtenau         --> temp_amp - >  23.07.2011-05:00 -> 23.07.2011-09:00  [5]  and many 1h-intervals (>10)
+                            #   --> temp_soil ->  22.07.2011-08:00 -> 24.07.2011-06:00
+        # Ostenfeld             --> status ok -> for replacment
+    # use data from Ostenfeld
+
+Kiel_Kronshagen_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Kiel_Holtenau_Temp_amb\produkt_tu_stunde_20020101_20221231_02564.txt",
+                             index_col=1, sep=";")
+Kiel_Kronshagen_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Kiel_Holtenau_Temp_soil\produkt_eb_stunde_19860501_20221231_02564.txt",
+                             index_col=1, sep=";")
+Ostenfeld_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Ostenfeld_Temp_amb\produkt_tu_stunde_20040501_20221231_06105.txt",
+                             index_col=1, sep=";")
+Ostenfeld_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Ostenfeld_Temp_soil\produkt_eb_stunde_19980601_20221231_06105.txt",
+                             index_col=1, sep=";")
+# collect data for 2011
+df_Kiel = df_temperatures_2011(Ostenfeld_raw_amb,Ostenfeld_raw_soil)
+df_Kiel.insert(0,"ags_id", np.full(len(date_range),position_cities["Kiel"]["ags_id"]))
+# Test if columns are full
+# df_Kiel.loc[:,"temp_amb"].isna().unique()
+# df_Kiel.loc[:,"temp_soil"].isna().unique()
+
+# --------------------------------------------------------------------------------------------------------------------->
+# DATA -> Zwickau
+
+weatherstations_Z = closestweatherstations(position_cities["Zwickau"]["lat"],position_cities["Zwickau"]["lon"])
+
+    # look at weatherstations nearby
+        # Lichtentanne          --> status ok -> temp_soil not available
+        # Treuen                --> status ok
+    # use Data from Treuen for temp_soil
+
+Lichtentanne_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Zwickau\Lichtentanne_Temp_amb\produkt_tu_stunde_20051201_20221231_05797.txt",
+                             index_col=1, sep=";")
+Treuen_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Zwickau\Treuen_Temp_soil\produkt_eb_stunde_20051027_20221231_07329.txt",
+                             index_col=1, sep=";")
+# collect data for 2011
+df_Zwickau = df_temperatures_2011(Lichtentanne_raw_amb,Treuen_raw_soil)
+df_Zwickau.insert(0,"ags_id", np.full(len(date_range),position_cities["Zwickau"]["ags_id"]))
+# Test if columns are full
+# df_Zwickau.loc[:,"temp_amb"].isna().unique()
+# df_Zwickau.loc[:,"temp_soil"].isna().unique()
+
+# --------------------------------------------------------------------------------------------------------------------->
+# create .csv file
+
+df = pd.concat([df_Rüdersdorf,df_Strausberg,df_Erkner,df_Grünheide_Mark,df_Ingolstadt,df_Kassel,df_Bocholt,df_Kiel,df_Zwickau])
+df.sort_index(inplace=True)
+
+data = dict(timestamp=df.index,
+            ags_id=df.loc[:, "ags_id"].values,
+            temp_amb=df.loc[:, "temp_amb"].values.round(2),
+            temp_soil=df.loc[:, "temp_soil"].values.round(2))
+temperatures_2011 = pd.DataFrame(data)
+
+temperatures_2011.to_csv("temperatures_2011",index=False)
