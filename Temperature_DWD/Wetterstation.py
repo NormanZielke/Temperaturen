@@ -226,6 +226,7 @@ def haversine(lon1,lat1,lon2,lat2):
     distance = R * c
 
     return distance
+
     # function which sorts a DataFrame "weatherstations" to deliver the weatherstations closest to a geo point
         # input values
             # lon1,lat1,lon2,lat2
@@ -435,13 +436,13 @@ axes[1].yaxis.set_label_coords(-0.040, 0.920)
 axes[1].legend(["Kassel","Wesertal_Lippoldsberg/Fritzlar_Eder (mean)"],
             prop={"family": "serif"})
 
-plt.savefig("plots/Kassel_missing_interval.jpg", format="jpg")
 plt.tight_layout()
+plt.savefig("plots/Kassel_missing_interval.jpg", format="jpg")
+
 # plt.show()
 
 # -> missing data interval in t_amb 24.08.2011-19:00 -> 29.08.2011-08:00    [110]
 # replace missing values in df_Kassel["temp_amb"] with interpolation
-
 df_Kassel.loc["2011-08-24 19:00:00":"2011-08-29 08:00:00", "temp_amb"] = df_inter.loc["2011-08-24 19:00:00":"2011-08-29 08:00:00", "temp_amb"]
 
 # ------> temp_soil
@@ -457,7 +458,6 @@ approximate(df_Kassel, missing_start_date, missing_end_date)
     # plot around missing interval -> +- 1 week
     # compare with weatherstation Warburg
 df_Warburg.loc["2011-08-18 19:00:00":"2011-09-04 08:00:00","temp_soil"] = Warburg_raw_soil.loc[2011081819:2011090408, 'V_TE100'].values
-df_Kassel.loc["2011-08-18 19:00:00":"2011-09-04 08:00:00",]
 
 start_date = "2011-08-18 19:00:00"
 end_date = "2011-09-04 08:00:00"
