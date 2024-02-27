@@ -5,7 +5,8 @@
   wobei gdf die geometrien der Landkreise enthält:
 
 ```
-  
+  gdf =r"Datafolder\DE_VG250.gpkg"
+
   regions = ["Rüdersdorf bei Berlin", "Strausberg", "Erkner", "Grünheide (Mark)",
              "Kiel", "Ingolstadt", "Kassel", "Bocholt", "Zwickau"]
   
