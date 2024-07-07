@@ -8,21 +8,21 @@ plt.style.use("seaborn-v0_8")
 
 Wetterstationen=["Berlin_Kaniswall","Berlin_Marzahn","Heckelberg","Münchberg"]
 
-Berlin_Kaniswall_raw_amb = pd.read_csv(r"Temperatures_rawdata\Berlin-Kaniswall_Temp_amb\produkt_tu_stunde_20040501_20200615_00410.txt",
+Berlin_Kaniswall_raw_amb = pd.read_csv("Temperatures_rawdata/Berlin-Kaniswall_Temp_amb/produkt_tu_stunde_20040501_20200615_00410.txt",
                  index_col = 1, sep=";")
-Berlin_Kaniswall_raw_soil = pd.read_csv(r"Temperatures_rawdata\Berlin-Kaniswall_Temp_soil\produkt_eb_stunde_19960601_20181210_00410.txt",
+Berlin_Kaniswall_raw_soil = pd.read_csv("Temperatures_rawdata/Berlin-Kaniswall_Temp_soil/produkt_eb_stunde_19960601_20181210_00410.txt",
                  index_col = 1, sep=";")
-Berlin_Marzahn_raw_amb = pd.read_csv(r"Temperatures_rawdata\Berlin_Marzahn_Temp_amb\produkt_tu_stunde_20070801_20221231_00420.txt",
+Berlin_Marzahn_raw_amb = pd.read_csv("Temperatures_rawdata/Berlin_Marzahn_Temp_amb/produkt_tu_stunde_20070801_20221231_00420.txt",
                  index_col = 1, sep=";")
-Berlin_Marzahn_raw_soil = pd.read_csv(r"Temperatures_rawdata\Berlin_Marzahn_Temp_soil\produkt_eb_stunde_19930501_20221231_00420.txt",
+Berlin_Marzahn_raw_soil = pd.read_csv("Temperatures_rawdata/Berlin_Marzahn_Temp_soil/produkt_eb_stunde_19930501_20221231_00420.txt",
                  index_col = 1, sep=";")
-Heckelberg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Heckelberg_Temp_amb\produkt_tu_stunde_20061201_20221231_07389.txt",
+Heckelberg_raw_amb = pd.read_csv("Temperatures_rawdata/Heckelberg_Temp_amb/produkt_tu_stunde_20061201_20221231_07389.txt",
                  index_col = 1, sep=";")
-Heckelberg_raw_soil = pd.read_csv(r"Temperatures_rawdata\Heckelberg_Temp_soil\produkt_eb_stunde_20061201_20221231_07389.txt",
+Heckelberg_raw_soil = pd.read_csv("Temperatures_rawdata/Heckelberg_Temp_soil/produkt_eb_stunde_20061201_20221231_07389.txt",
                  index_col = 1, sep=";")
-Müncheberg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Müncheberg_Temp_amb\produkt_tu_stunde_19910101_20221231_03376.txt",
+Müncheberg_raw_amb = pd.read_csv("Temperatures_rawdata/Müncheberg_Temp_amb/produkt_tu_stunde_19910101_20221231_03376.txt",
                  index_col = 1, sep=";")
-Müncheberg_raw_soil = pd.read_csv(r"Temperatures_rawdata\Müncheberg_Temp_soil\produkt_eb_stunde_19730101_20221231_03376.txt",
+Müncheberg_raw_soil = pd.read_csv("Temperatures_rawdata/Müncheberg_Temp_soil/produkt_eb_stunde_19730101_20221231_03376.txt",
                  index_col = 1, sep=";")
 
 # --------------------------------------------------------------------------------------------------------------------->
@@ -66,10 +66,10 @@ df_Müncheberg = df_temperatures_2011(Müncheberg_raw_amb,Müncheberg_raw_soil)
     # missing values in t_soil will be placed by linear approximation
     # to replace missing values in t_amb, we use weather station Zehdenick
 
-Zehdenick_raw_amb = pd.read_csv(r"Temperatures_rawdata\Zehdenick_Temp_amb\produkt_tu_stunde_19810101_20221231_05745.txt",
+Zehdenick_raw_amb = pd.read_csv("Temperatures_rawdata/Zehdenick_Temp_amb/produkt_tu_stunde_19810101_20221231_05745.txt",
                  index_col = 1, sep=";")
 
-Zehdenick_raw_soil = pd.read_csv(r"Temperatures_rawdata\Zehdenick_Temp_soil\produkt_eb_stunde_19560101_20221231_05745.txt",
+Zehdenick_raw_soil = pd.read_csv("Temperatures_rawdata/Zehdenick_Temp_soil/produkt_eb_stunde_19560101_20221231_05745.txt",
                  index_col = 1, sep=";")
 
 df_Zehdenick = df_temperatures_2011(Zehdenick_raw_amb,Zehdenick_raw_soil)
@@ -172,7 +172,7 @@ df_Rüdersdorf.insert(0,"ags_id",np.full(len(date_range),12064428))
 
 # Strausberg -> Berlin-Kaniswall/Berlin-Marzahn/Heckelber/Müncheberg arithmetic mean
 df_Strausberg = (df_Berlin_Kaniswall + df_Berlin_Marzahn + df_Heckelberg + df_Müncheberg)/4
-df_Strausberg.insert(0,"ags_id",np.full(len(date_range),12064472))
+df_Strausberg.insert(0, "ags_id", np.full(len(date_range), 12064472))
 
 # Erkner = Berlin-Kaniswall
 data = {"temp_amb": {},
@@ -192,7 +192,7 @@ df_Grünheide_Mark.insert(0,"ags_id",np.full(len(date_range),12067201))
 
 # load Dataframe with all waetherstations, which deliver values for t_amb
     # source: https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/hourly/air_temperature/historical/
-weatherstations_t_amb = pd.read_csv(r"Wetterstationen\TU_Stundenwerte_Beschreibung_Stationen_t_amb.csv",
+weatherstations_t_amb = pd.read_csv("Wetterstationen/TU_Stundenwerte_Beschreibung_Stationen_t_amb.csv",
                                     encoding='latin1', sep=";")
 # cities
 position_cities = {
@@ -269,15 +269,15 @@ weatherstations_IN = closestweatherstations(position_cities["Ingolstadt"]["lat"]
         # Königsmoos-Untermaxfeld -> not in operation anymore
     # -> missing values in t_soil 13.02.2011-09:00 -> 14.02.2011-07:00 [23]
 
-Kösching_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Kösching_Temp_amb\produkt_tu_stunde_20041201_20221231_02700.txt",
+Kösching_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Ingolstadt/Kösching_Temp_amb/produkt_tu_stunde_20041201_20221231_02700.txt",
                                index_col = 1, sep=";")
-Kösching_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Kösching_Temp_soil\produkt_eb_stunde_19870101_20221231_02700.txt",
+Kösching_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Ingolstadt/Kösching_Temp_soil/produkt_eb_stunde_19870101_20221231_02700.txt",
                                 index_col = 1, sep=";")
-Neuburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Neuburg_Temp_amb\produkt_tu_stunde_20020101_20221231_03484.txt",
+Neuburg_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Ingolstadt/Neuburg_Temp_amb/produkt_tu_stunde_20020101_20221231_03484.txt",
                               index_col = 1, sep=";")
-Gelbelsee_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Gelbelsee_Temp_amb\produkt_tu_stunde_19910101_20221231_01587.txt",
+Gelbelsee_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Ingolstadt/Gelbelsee_Temp_amb/produkt_tu_stunde_19910101_20221231_01587.txt",
                                 index_col = 1, sep=";")
-Eichstätt_Landershofen_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Ingolstadt\Eichstätt-Landershofen_Temp_amb\produkt_tu_stunde_20050201_20221231_01161.txt",
+Eichstätt_Landershofen_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Ingolstadt/Eichstätt-Landershofen_Temp_amb/produkt_tu_stunde_20050201_20221231_01161.txt",
                                               index_col = 1, sep=";")
 
 #closest_Kösching = closestweatherstations(11.4872,48.8302)
@@ -367,21 +367,21 @@ weatherstations_KS = closestweatherstations(position_cities["Kassel"]["lat"],pos
         # Eschwege              --> no missing values
     # -> missing data interval in temp_soil 24.08.2011-19:00 -> 29.08.2011-08:00	[110]
 
-Kassel_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Kassel_Temp_amb\produkt_tu_stunde_19480101_20131031_02532.txt",
+Kassel_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Kassel_Temp_amb/produkt_tu_stunde_19480101_20131031_02532.txt",
                              index_col=1, sep=";")
-Kassel_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Kassel_Temp_soil\produkt_eb_stunde_19770101_20131031_02532.txt",
+Kassel_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Kassel_Temp_soil/produkt_eb_stunde_19770101_20131031_02532.txt",
                               index_col=1, sep=";")
-Fritzlar_Eder_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Fritzlar_Eder_Temp_amb\produkt_tu_stunde_20020101_20221231_01504.txt",
+Fritzlar_Eder_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Fritzlar_Eder_Temp_amb/produkt_tu_stunde_20020101_20221231_01504.txt",
                                     index_col=1, sep=";")
-Fritzlar_Eder_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Fritzlar_Eder_Temp_soil\produkt_eb_stunde_20010403_20221231_01504.txt",
+Fritzlar_Eder_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Fritzlar_Eder_Temp_soil/produkt_eb_stunde_20010403_20221231_01504.txt",
                                     index_col=1, sep=";")
-Warburg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Warburg_Temp_amb\produkt_tu_stunde_20010402_20221231_05347.txt",
+Warburg_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Warburg_Temp_amb/produkt_tu_stunde_20010402_20221231_05347.txt",
                               index_col=1, sep=";")
-Warburg_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Warburg_Temp_soil\produkt_eb_stunde_19880201_20221231_05347.txt",
+Warburg_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Warburg_Temp_soil/produkt_eb_stunde_19880201_20221231_05347.txt",
                               index_col=1, sep=";")
-Wesertal_Lippoldsberg_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Wesertal-Lippoldsberg_Temp_amb\produkt_tu_stunde_20040901_20221231_05279.txt",
+Wesertal_Lippoldsberg_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Wesertal-Lippoldsberg_Temp_amb/produkt_tu_stunde_20040901_20221231_05279.txt",
                                             index_col=1, sep=";")
-Eschwege_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kassel\Eschwege_Temp_amb\produkt_tu_stunde_20041001_20221231_01297.txt",
+Eschwege_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kassel/Eschwege_Temp_amb/produkt_tu_stunde_20041001_20221231_01297.txt",
                                index_col=1, sep=";")
 # create empty dataframes
 data = {"temp_amb": {},
@@ -493,11 +493,11 @@ weatherstations_BOH = closestweatherstations(position_cities["Bocholt"]["lat"],p
         # Kleve                 --> status ok - temp_soil not available
     # use data from Borken und Kleve -> build mean for temp_amb
 
-Borken_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Borken_Temp_amb\produkt_tu_stunde_20040601_20221231_00617.txt",
+Borken_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Bocholt/Borken_Temp_amb/produkt_tu_stunde_20040601_20221231_00617.txt",
                              index_col=1, sep=";")
-Borken_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Borken_Temp_soil\produkt_eb_stunde_20040601_20221231_00617.txt",
+Borken_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Bocholt/Borken_Temp_soil/produkt_eb_stunde_20040601_20221231_00617.txt",
                               index_col=1, sep=";")
-Kleve_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Bocholt\Kleve_Temp_amb\produkt_tu_stunde_20040701_20221231_02629.txt",
+Kleve_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Bocholt/Kleve_Temp_amb/produkt_tu_stunde_20040701_20221231_02629.txt",
                             index_col=1, sep=";")
 # collect data for 2011
 df_Borken = df_temperatures_2011(Borken_raw_amb,Borken_raw_soil)
@@ -523,13 +523,13 @@ weatherstations_KI = closestweatherstations(position_cities["Kiel"]["lat"],posit
         # Ostenfeld             --> status ok -> for replacment
     # use data from Ostenfeld
 
-Kiel_Kronshagen_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Kiel_Holtenau_Temp_amb\produkt_tu_stunde_20020101_20221231_02564.txt",
+Kiel_Kronshagen_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kiel/Kiel_Holtenau_Temp_amb/produkt_tu_stunde_20020101_20221231_02564.txt",
                              index_col=1, sep=";")
-Kiel_Kronshagen_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Kiel_Holtenau_Temp_soil\produkt_eb_stunde_19860501_20221231_02564.txt",
+Kiel_Kronshagen_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Kiel/Kiel_Holtenau_Temp_soil/produkt_eb_stunde_19860501_20221231_02564.txt",
                              index_col=1, sep=";")
-Ostenfeld_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Ostenfeld_Temp_amb\produkt_tu_stunde_20040501_20221231_06105.txt",
+Ostenfeld_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Kiel/Ostenfeld_Temp_amb/produkt_tu_stunde_20040501_20221231_06105.txt",
                              index_col=1, sep=";")
-Ostenfeld_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Kiel\Ostenfeld_Temp_soil\produkt_eb_stunde_19980601_20221231_06105.txt",
+Ostenfeld_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Kiel/Ostenfeld_Temp_soil/produkt_eb_stunde_19980601_20221231_06105.txt",
                              index_col=1, sep=";")
 # collect data for 2011
 df_Kiel = df_temperatures_2011(Ostenfeld_raw_amb,Ostenfeld_raw_soil)
@@ -548,9 +548,9 @@ weatherstations_Z = closestweatherstations(position_cities["Zwickau"]["lat"],pos
         # Treuen                --> status ok
     # use Data from Treuen for temp_soil
 
-Lichtentanne_raw_amb = pd.read_csv(r"Temperatures_rawdata\Städte\Zwickau\Lichtentanne_Temp_amb\produkt_tu_stunde_20051201_20221231_05797.txt",
+Lichtentanne_raw_amb = pd.read_csv("Temperatures_rawdata/Städte/Zwickau/Lichtentanne_Temp_amb/produkt_tu_stunde_20051201_20221231_05797.txt",
                              index_col=1, sep=";")
-Treuen_raw_soil = pd.read_csv(r"Temperatures_rawdata\Städte\Zwickau\Treuen_Temp_soil\produkt_eb_stunde_20051027_20221231_07329.txt",
+Treuen_raw_soil = pd.read_csv("Temperatures_rawdata/Städte/Zwickau/Treuen_Temp_soil/produkt_eb_stunde_20051027_20221231_07329.txt",
                              index_col=1, sep=";")
 # collect data for 2011
 df_Zwickau = df_temperatures_2011(Lichtentanne_raw_amb,Treuen_raw_soil)
@@ -562,7 +562,7 @@ df_Zwickau.insert(0,"ags_id", np.full(len(date_range),position_cities["Zwickau"]
 # --------------------------------------------------------------------------------------------------------------------->
 # create .csv file
 
-df = pd.concat([df_Rüdersdorf,df_Strausberg,df_Erkner,df_Grünheide_Mark,df_Ingolstadt,df_Kassel,df_Bocholt,df_Kiel,df_Zwickau])
+df = pd.concat([df_Rüdersdorf, df_Strausberg, df_Erkner, df_Grünheide_Mark, df_Ingolstadt, df_Kassel, df_Bocholt, df_Kiel, df_Zwickau])
 df.sort_index(inplace=True)
 
 data = dict(timestamp=df.index,
@@ -571,4 +571,4 @@ data = dict(timestamp=df.index,
             temp_soil=df.loc[:, "temp_soil"].values.round(2))
 temperatures_2011 = pd.DataFrame(data)
 
-temperatures_2011.to_csv("temperatures_2011",index=False)
+temperatures_2011.to_csv("temperatures_2011/temperatures_2011.csv", index=False)
