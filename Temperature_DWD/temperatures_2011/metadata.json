@@ -22,7 +22,7 @@
     ],
     "publicationDate": "2024-07-03",
     "context": {
-        "homepage": "https://github.com/stadt-land-energie-projekt",
+        "homepage": "https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html",
         "documentation": "https://github.com/NormanZielke/Temperaturen_Zeitreihen",
         "sourceCode": "https://github.com/NormanZielke/Temperaturen_Zeitreihen",
         "contact": "Norman.Zielke@rl-institut.de",
@@ -37,7 +37,7 @@
         "resolution": "Municipality"
     },
     "temporal": {
-        "referenceDate": "2011-01-01",
+        "referenceDate": "2011",
         "timeseries": [
             {
                 "start": "2011-01-01T00:00+01",
@@ -52,7 +52,7 @@
         {
             "title": "Deutscher Wetterdienst (DWD)",
             "description": "Im CDC-OpenData Bereich erhalten Sie historische und aktuelle meteorologische Daten für zahlreiche Parameter, z.B. für Lufttemperatur gemeinsam mit Luftfeuchte, Bodentemperatur, Niederschlagshöhe, Druck, Windgeschwindigkeit und -richtung, Sichtweite, solare Einstrahlung, Sonnenscheindauer und Wolkenbedeckung in 10-minütiger, stündlicher, täglicher, monatlicher, jährlicher oder vieljähriger (z.B.: 30-jährige Mittel) Auflösung.",
-            "path": "https://www.dwd.de/DE/leistungen/cdc/cdc_ueberblick-klimadaten.html",
+            "path": "https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/hourly/",
             "licenses": [
                 {
                     "name": "CC BY 4.0",
